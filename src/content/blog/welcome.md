@@ -2,6 +2,8 @@
 title: 'Welcome my friends！'
 description: '在2024年11月5日，我突然想起来我的英语课前分享还没有做，然后结合前些阵子学习markdown写题解也想分享分享，突然想到，我为什么不写一个博客来呈现一下我的分享呢？'
 pubDate: 2024-11-06
+tags:
+  - Life
 ---
 
 # Welcome to hicancan personal blog, nice to meet you!

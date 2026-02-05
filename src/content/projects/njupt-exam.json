@@ -1,0 +1,13 @@
+{
+    "title": "NJUPT Exam Sync",
+    "description": "南邮考试日程一键同步工具。适配新版教务系统，支持多端日历订阅，让考试安排一目了然。",
+    "tags": [
+        "Python",
+        "Calendar",
+        "Automation"
+    ],
+    "image": "https://socialify.git.ci/hicancan/njupt-exam-sync/image?description=1&font=Inter&language=1&name=1&owner=1&pattern=Circuit%20Board&theme=Dark",
+    "link": "https://github.com/hicancan/njupt-exam-sync",
+    "featured": true,
+    "priority": 100
+}

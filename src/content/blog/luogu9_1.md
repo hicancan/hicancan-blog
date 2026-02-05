@@ -2,6 +2,10 @@
 title: '洛谷9_1计数排序'
 description: '洛谷P1271【深基9.例1】选举学生会题解。详细解析计数排序算法及其适用场景。'
 pubDate: 2024-11-13
+tags:
+  - Algorithm
+  - Luogu
+  - CountingSort
 ---
 
 # 【深基9.例1】选举学生会

@@ -2,6 +2,10 @@
 title: 'hicancan''s 0xGame Writeup'
 description: '0xGame 2024 Week 1 Writeup，涵盖Misc、Crypto、Pwn、Web、Reverse、Blockchain各个方向的解题思路与Flag。'
 pubDate: 2024-11-07
+tags:
+  - CTF
+  - Writeup
+  - Security
 ---
 
 # 0xGame 2024 Week 1 Writeup

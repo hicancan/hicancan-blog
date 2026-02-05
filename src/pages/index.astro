@@ -1,11 +1,86 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import PostCard from "../components/PostCard.astro";
+import HeroGlass from "../components/home/HeroGlass.astro";
+import { getCollection } from "astro:content";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+// Fortress-Level: Safe Array Access
+const latestPost = posts.length > 0 ? posts[0] : null;
+const otherPosts = posts.length > 1 ? posts.slice(1, 4) : [];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="首页" nebulaVariant="default">
+    <div
+        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(200px,auto)] relative z-10 max-w-7xl mx-auto px-4 py-8"
+    >
+        <!-- Hero Section: Crystal Flagship (Span 2x2) -->
+        <HeroGlass />
+
+        <!-- Latest Post (Span 2x2 if big enough, or 2x1) -->
+        {
+            latestPost && (
+                <div class="md:col-span-2 md:row-span-2 h-full">
+                    <PostCard post={latestPost} loading="eager" />
+                </div>
+            )
+        }
+
+        <!-- Other Posts -->
+        {
+            otherPosts.map((post) => (
+                <div class="md:col-span-1 md:row-span-1 h-64">
+                    <PostCard post={post} />
+                </div>
+            ))
+        }
+
+        <!-- 'View All' Link Block (Holographic Button) -->
+        <a
+            href="/archive"
+            class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-3xl bg-surface/30 border border-white/5 hover:border-accent/50 transition-all flex flex-col items-center justify-center p-6"
+        >
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            >
+            </div>
+
+            <div
+                class="relative z-10 w-12 h-12 mb-4 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-white/10 group-hover:border-accent/30"
+            >
+                <svg
+                    class="w-6 h-6 text-text-secondary group-hover:text-accent transition-colors"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    ></path></svg
+                >
+            </div>
+
+            <span
+                class="text-text-secondary group-hover:text-white font-medium flex items-center gap-2 relative z-10"
+            >
+                进入归档
+                <svg
+                    class="w-4 h-4 transition-transform group-hover:translate-x-1 text-accent"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg
+                >
+            </span>
+        </a>
+    </div>
 </Layout>

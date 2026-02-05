@@ -1,27 +1,43 @@
 ---
-import "../styles/global.css";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
+import NebulaBackground from "../components/NebulaBackground.astro";
+
+interface Props {
+	title?: string;
+	description?: string;
+	nebulaVariant?: "default" | "galaxy" | "guestbook" | "none";
+}
+
+const {
+	title = "Hicancan",
+	description,
+	nebulaVariant = "default",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN" class="scroll-smooth">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<BaseHead title={title} description={description} />
+		<ClientRouter />
 	</head>
-	<body>
-		<slot />
+	<body
+		class="bg-main text-text-primary antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-accent/30 selection:text-white"
+	>
+		<NebulaBackground variant={nebulaVariant} />
+
+		<Header />
+
+		<!-- Main Content -->
+		<main
+			class="flex-1 relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+		>
+			<slot />
+		</main>
+
+		<Footer />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

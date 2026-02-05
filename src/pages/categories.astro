@@ -1,0 +1,102 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const elements = [
+    {
+        symbol: "Js",
+        name: "JavaScript",
+        atomic: 1,
+        color: "border-yellow-400 text-yellow-400 shadow-yellow-400/50",
+    },
+    {
+        symbol: "Ts",
+        name: "TypeScript",
+        atomic: 2,
+        color: "border-blue-400 text-blue-400 shadow-blue-400/50",
+    },
+    {
+        symbol: "As",
+        name: "Astro",
+        atomic: 3,
+        color: "border-orange-500 text-orange-500 shadow-orange-500/50",
+    },
+    {
+        symbol: "Re",
+        name: "React",
+        atomic: 4,
+        color: "border-cyan-400 text-cyan-400 shadow-cyan-400/50",
+    },
+    {
+        symbol: "Py",
+        name: "Python",
+        atomic: 5,
+        color: "border-blue-300 text-blue-300 shadow-blue-300/50",
+    },
+    {
+        symbol: "Rs",
+        name: "Rust",
+        atomic: 6,
+        color: "border-orange-700 text-orange-700 shadow-orange-700/50",
+    },
+    {
+        symbol: "Go",
+        name: "GoLang",
+        atomic: 7,
+        color: "border-cyan-300 text-cyan-300 shadow-cyan-300/50",
+    },
+    {
+        symbol: "Css",
+        name: "CSS",
+        atomic: 8,
+        color: "border-blue-500 text-blue-500 shadow-blue-500/50",
+    },
+    {
+        symbol: "Tw",
+        name: "Tailwind",
+        atomic: 9,
+        color: "border-sky-400 text-sky-400 shadow-sky-400/50",
+    },
+    {
+        symbol: "Ai",
+        name: "Artificial Intelligence",
+        atomic: 10,
+        color: "border-emerald-400 text-emerald-400 shadow-emerald-400/50",
+    },
+];
+---
+
+<Layout title="分类">
+    <div class="max-w-6xl mx-auto text-center">
+        <h1 class="text-5xl font-bold mb-6">知识库</h1>
+        <p class="text-text-secondary mb-16 font-mono">
+            构成我数字世界的基础元素。
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6">
+            {
+                elements.map((el) => (
+                    <div
+                        class={`group relative w-32 h-36 md:w-40 md:h-44 bg-surface/30 backdrop-blur-md border-2 ${el.color} rounded-xl p-4 flex flex-col justify-between transition-all duration-300 hover:scale-110 hover:bg-surface/50 cursor-pointer shadow-[0_0_15px_-5px] hover:shadow-[0_0_30px_-5px]`}
+                    >
+                        <div class="flex justify-between items-start">
+                            <span class="font-mono text-xs opacity-70">
+                                {el.atomic}
+                            </span>
+                            <span class="font-mono text-xs opacity-70">
+                                1.008
+                            </span>
+                        </div>
+
+                        <div class="text-center font-bold text-4xl mb-2">
+                            {el.symbol}
+                        </div>
+
+                        <div class="text-center text-xs font-medium uppercase tracking-wider opacity-90 truncate w-full">
+                            {el.name}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</Layout>

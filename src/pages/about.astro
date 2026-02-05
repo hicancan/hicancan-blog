@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../config';
+import { Image } from 'astro:assets';
+
+const skills = [
+    { category: "安全 / CTF", items: ["Web Security", "Reverse Engineering", "Crypto", "Pwntools", "Burp Suite"] },
+    { category: "算法与数据结构", items: ["C++", "Data Structures", "Sorting", "Search Algorithms", "Luogu"] },
+    { category: "AI / 研究", items: ["AI / Deep Learning", "Quantum Computing", "mmWave Radar", "PyTorch"] },
+    { category: "工程与工具", items: ["Astro", "React", "Python", "TypeScript", "LinuxOps"] }
+];
+
+const timeline = [
+    { year: "2026", title: "项目与展示", desc: "完成 AI 方向 Demo 与作品集整理" },
+    { year: "2024", title: "入学 NJUPT", desc: "系统学习与课程实践" },
+    { year: "2023", title: "竞赛与探索", desc: "参与 CTF 与算法训练" },
+    { year: "2022", title: "起点", desc: "写下第一行 Hello World" }
+];
+---
+
+<Layout title="关于我">
+
+    <div class="max-w-5xl mx-auto relative z-10 px-4">
+        <!-- Hero Profile: The Captain's Quarters -->
+        <div class="flex flex-col md:flex-row items-center gap-12 mb-24 pt-12">
+            <!-- Reactor Core Avatar -->
+            <div class="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 group perspective-1000">
+                <!-- Rotating Data Ring -->
+                <div class="absolute inset-0 rounded-full border border-dashed border-primary/30 animate-[spin_10s_linear_infinite] group-hover:border-primary/60 transition-colors"></div>
+                <div class="absolute -inset-4 rounded-full border border-white/5 animate-[spin_15s_linear_infinite_reverse]"></div>
+                
+                <!-- Core Glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-20 group-hover:opacity-50 transition-opacity duration-500 animate-pulse"></div>
+                
+                <div class="relative w-full h-full rounded-full p-2 border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                    <Image 
+                        src={SITE_CONFIG.avatar} 
+                        alt="Profile" 
+                        class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        width={400} 
+                        height={400} 
+                        loading="eager" 
+                    />
+                </div>
+
+                <!-- Status Indicator -->
+                <div class="absolute bottom-4 right-4 w-6 h-6 bg-main rounded-full flex items-center justify-center border border-white/20 shadow-lg z-20 group-hover:scale-110 transition-transform">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="text-center md:text-left space-y-6">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-black mb-2 tracking-tight">
+                        你好，我是 
+                        <span class="relative">
+                            <span class="absolute -inset-1 bg-gradient-to-r from-primary to-accent blur opacity-30 group-hover:opacity-60 transition-opacity"></span>
+                            <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent capitalize">{SITE_CONFIG.author}</span>
+                        </span>
+                    </h1>
+                    <div class="h-1 w-24 bg-gradient-to-r from-primary to-transparent rounded-full mt-4 md:mx-0 mx-auto"></div>
+                </div>
+
+                <p class="text-xl text-text-secondary font-light leading-relaxed max-w-2xl">
+                    南京邮电大学 <span class="text-primary/80 font-mono text-sm border border-primary/20 px-2 py-0.5 rounded ml-1">NJUPT</span> · CTF 与算法爱好者 · 关注 AI 与工程<br/>
+                    <span class="text-base opacity-60 mt-2 block font-mono">// 学生 coder · CTF 爱好者 · 持续折腾</span>
+                </p>
+
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href={SITE_CONFIG.social.bilibili} target="_blank" rel="noopener noreferrer" class="group px-6 py-2.5 bg-[#fb7299]/5 hover:bg-[#fb7299]/10 text-[#fb7299] rounded-xl border border-[#fb7299]/20 hover:border-[#fb7299]/50 transition-all flex items-center gap-3 backdrop-blur-sm">
+                        <span class="group-hover:scale-110 transition-transform">📺</span> Bilibili
+                    </a>
+                    <a href={SITE_CONFIG.social.github} target="_blank" rel="noopener noreferrer" class="group px-6 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 hover:border-white/30 transition-all text-white flex items-center gap-3 backdrop-blur-sm">
+                        <span class="group-hover:scale-110 transition-transform">🐙</span> GitHub
+                    </a>
+                    <a href={`mailto:${SITE_CONFIG.email}`} class="group px-6 py-2.5 bg-primary/5 hover:bg-primary/10 text-primary rounded-xl border border-primary/20 hover:border-primary/50 transition-all flex items-center gap-3 backdrop-blur-sm">
+                        <span class="group-hover:scale-110 transition-transform">✉️</span> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bio Introduction: Holographic Terminal -->
+        <div class="relative group mb-24">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-primary/30 to-accent/30 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-700"></div>
+            <div class="relative bg-surface/30 p-8 md:p-10 rounded-3xl border border-white/10 backdrop-blur-xl">
+                <div class="absolute top-0 right-0 p-4 opacity-50">
+                    <svg class="w-16 h-16 text-white/5" viewBox="0 0 24 24" fill="currentColor"><path d="M14.6 2.3l-1.6 2.4h-2l-1.6-2.4C8 1.5 6.4 1.5 5.2 2.3l-2.4 1.6c-1 1-1 2.6 0 3.6l1.6 2.4-1.6 2.4c-1 1-1 2.6 0 3.6l2.4 1.6c1.2.8 2.8.8 4 0l1.6-2.4h2l1.6 2.4c1.2.8 2.8.8 4 0l2.4-1.6c1-1 1-2.6 0-3.6l-1.6-2.4 1.6-2.4c1-1 1-2.6 0-3.6l-2.4-1.6c-1.2-.8-2.8-.8-4 0zM12 16c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"/></svg>
+                </div>
+                
+                <h3 class="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+                    <span class="text-accent">#</span> 关于我 <span class="text-xs font-mono text-text-secondary py-1 px-2 rounded bg-white/5 border border-white/5">READ_ONLY</span>
+                </h3>
+                
+                <div class="prose prose-invert max-w-none text-lg leading-relaxed text-text-secondary/90 space-y-6">
+                    <p>
+                        喜欢把灵感变成可运行的作品，也在记录过程与思考。
+                    </p>
+                    <p>
+                        目前专注于 <strong class="text-accent">安全</strong> 与 <strong class="text-accent">CTF</strong> 相关方向，享受解题与实践。
+                    </p>
+                    <p>
+                        也在探索 <strong class="text-white border-b border-white/20 border-dashed">AI</strong> 与 <strong class="text-white border-b border-white/20 border-dashed">工程化</strong> 结合的可能，希望做出可用的作品。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Matrix: Crystal Data Plates -->
+        <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span class="w-2 h-8 bg-gradient-to-b from-accent to-transparent rounded-full"></span>
+            技能矩阵
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+            {skills.map((group, idx) => (
+                <div 
+                    class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
+                    style={{ transitionDelay: `${idx * 100}ms` }}
+                >
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
+                    <div class="relative p-6 z-10">
+                        <h3 class="text-xl font-bold mb-4 text-white flex items-center justify-between">
+                            {group.category}
+                            <svg class="w-5 h-5 text-text-secondary/50 group-hover:text-accent transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            {group.items.map(skill => (
+                                <span class="px-3 py-1.5 text-xs font-mono rounded-lg bg-black/20 text-text-secondary border border-white/5 group-hover:border-primary/30 group-hover:text-primary/90 transition-all select-none hover:bg-primary/10 cursor-default">
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <!-- Quantum Timeline -->
+        <h2 class="text-3xl font-bold mb-12 text-center relative">
+            <span class="relative z-10 bg-transparent px-4">成长轨迹</span>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        </h2>
+        
+        <div class="max-w-3xl mx-auto relative px-4">
+            <!-- Central Luminous Line -->
+            <div class="absolute left-8 md:left-1/2 top-4 bottom-4 w-px bg-gradient-to-b from-primary/50 via-accent/50 to-transparent md:-translate-x-1/2 shadow-[0_0_8px_rgba(var(--color-primary),0.5)]"></div>
+
+            <div class="space-y-12">
+            {timeline.map((item, index) => (
+                <div class={`relative flex flex-col md:flex-row gap-8 items-start ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
+                    
+                    <!-- Timeline Node -->
+                    <div class="absolute left-8 md:left-1/2 w-4 h-4 -translate-x-1/2 top-1.5 flex items-center justify-center z-20">
+                        <div class="w-3 h-3 rounded-full bg-main border border-accent group-hover:scale-150 group-hover:bg-accent group-hover:shadow-[0_0_15px_var(--color-accent)] transition-all duration-500"></div>
+                    </div>
+
+                    <!-- Content Card -->
+                    <div class="pl-16 md:pl-0 w-full md:w-1/2">
+                        <div class={`
+                            relative p-5 rounded-2xl border border-white/5 bg-surface/30 backdrop-blur-sm
+                            transition-all duration-500 hover:-translate-y-1 hover:bg-surface/50 hover:border-white/10
+                            group-hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]
+                            ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}
+                        `}>
+                            <div class={`absolute top-5 ${index % 2 === 0 ? '-left-2' : '-right-2 md:-left-2'} md:${index % 2 === 0 ? '-left-2' : '-right-2'} w-4 h-4 bg-surface/30 rotate-45 border-l border-b border-white/5 ${index % 2 !== 0 ? 'hidden md:block' : ''}`}></div>
+                            
+                            <span class="inline-block px-2 py-0.5 rounded text-xs font-mono bg-accent/10 text-accent mb-2 border border-accent/20">
+                                {item.year}
+                            </span>
+                            <h4 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">{item.title}</h4>
+                            <p class="text-text-secondary text-sm leading-relaxed">
+                                {item.desc}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Empty Spacer for Alignment -->
+                    <div class="hidden md:block w-1/2"></div>
+                </div>
+            ))}
+            </div>
+        </div>
+    </div>
+</Layout>

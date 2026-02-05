@@ -2,6 +2,10 @@
 title: 'hicancan的科研周报10.25'
 description: '科研周报10.25：学习mmWave studio采集毫米波雷达数据，阅读《基于车载毫米波雷达动态手势识别网络》及3DCNN、Transformer代码学习。'
 pubDate: 2024-11-07
+tags:
+  - Research
+  - Weekly
+  - AI
 ---
 
 # 10.18-10.25科研学习

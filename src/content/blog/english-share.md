@@ -2,6 +2,9 @@
 title: 'Is ‘Rizz’ the Secret to Getting Ahead at Work?'
 description: '英语阅读笔记：探讨“Rizz”（魅力）是否是职场成功的秘诀，以及普通人如何培养这种特质。'
 pubDate: 2024-11-06
+tags:
+  - English
+  - Life
 ---
 
 # **Is ‘Rizz’ the Secret to Getting Ahead at Work?**

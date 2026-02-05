@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getPostTheme, formatDate } from '../utils/cover';
+
+interface Props {
+    post: CollectionEntry<"blog">;
+    loading?: "eager" | "lazy";
+}
+
+const { post, loading = "lazy" } = Astro.props;
+const theme = getPostTheme(post.id);
+const hasImage = !!post.data.heroImage;
+---
+
+<a href={`/blog/${post.id}/`} class="group relative block w-full h-full">
+    <div
+        class={`relative h-full overflow-hidden rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 flex flex-col border border-white/5 ${
+            hasImage ? "bg-surface/40 backdrop-blur-md" : theme.bg
+        }`}
+    >
+        {
+            hasImage ? (
+                /* === LAYOUT A: IMAGE CARD === */
+                <>
+                    <div class="relative aspect-[16/9] w-full overflow-hidden shrink-0 border-b border-white/5">
+                        <img
+                            transition:name={`hero-${post.id}`}
+                            src={post.data.heroImage}
+                            alt={post.data.title}
+                            loading={loading}
+                            fetchpriority={loading === "eager" ? "high" : "auto"}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-5 flex flex-col grow relative z-10 min-h-0">
+                         <div class="flex items-center gap-2 mb-2 text-xs font-mono text-text-secondary/80">
+                            <time datetime={post.data.pubDate.toISOString()}>
+                                {formatDate(post.data.pubDate)}
+                            </time>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-tight line-clamp-2 group-hover:text-accent transition-colors">
+                            {post.data.title}
+                        </h3>
+                        <p class="text-sm text-text-secondary/70 line-clamp-2 leading-relaxed">
+                            {post.data.description}
+                        </p>
+                    </div>
+                </>
+            ) : (
+                /* === LAYOUT B: TYPOGRAPHIC POSTER (Full Height) === */
+                /* Solves "Long Title" issue by giving full space */
+                <div class="p-8 flex flex-col h-full relative z-10 transition-colors duration-500 ease-out">
+                    <!-- Subtle Noise Texture -->
+                    <div class="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none bg-noise"></div>
+                    
+                    <!-- Date Badge -->
+                    <div class={`inline-flex self-start px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-mono mb-auto ${theme.accent}`}>
+                         {formatDate(post.data.pubDate)}
+                    </div>
+
+                    <!-- Giant Title -->
+                    <h3 class={`text-2xl md:text-3xl font-bold leading-snug tracking-tight my-6 group-hover:scale-[1.02] transition-transform duration-500 ease-out origin-left ${theme.text}`}>
+                        {post.data.title}
+                    </h3>
+
+                    <!-- Footer: Description or Tags -->
+                    <div class="mt-auto pt-6 border-t border-white/10">
+                        <p class={`text-sm line-clamp-2 opacity-80 ${theme.text} font-medium`}>
+                             {post.data.description}
+                        </p>
+                    </div>
+
+                    <!-- Decorative Icon -->
+                    <div class="absolute top-6 right-6 opacity-20 transform rotate-12 group-hover:rotate-45 transition-transform duration-700 ease-in-out">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" class={theme.text}><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </div>
+                </div>
+            )
+        }
+    </div>
+</a>

@@ -2,6 +2,10 @@
 title: '洛谷9_4求第k小数'
 description: '洛谷P1923【深基9.例4】求第 k 小的数题解。介绍基于快速排序思想的快速选择算法以及`nth_element`的使用。'
 pubDate: 2024-11-30
+tags:
+  - Algorithm
+  - Luogu
+  - Selection
 ---
 
 # 【深基9.例4】求第 k 小的数

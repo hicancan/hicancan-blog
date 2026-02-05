@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => b.data.priority - a.data.priority);
+---
+
+<Layout title="项目">
+    <div class="max-w-7xl mx-auto px-4 py-12 relative z-10">
+        <div class="mb-24 text-center">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-accent animate-gradient bg-300 tracking-tighter">
+                项目
+            </h1>
+            <div class="w-16 h-1 bg-accent/50 mx-auto rounded-full mb-6"></div>
+            <p class="text-xl text-text-secondary max-w-2xl mx-auto font-light font-mono">
+                // 将咖啡转化为代码，将想法转化为现实
+            </p>
+        </div>
+
+        <div class="space-y-32">
+            {projects.length > 0 ? (
+                projects.map((project, index) => (
+                    <div class={`flex flex-col md:flex-row gap-12 md:gap-20 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} group`}>
+                        
+                        <!-- Image Card: Quantum Frame -->
+                        <div class="w-full md:w-3/5 relative perspective-1000">
+                            <!-- Floating Borders -->
+                            <div class="absolute -inset-4 rounded-3xl border border-white/5 opacity-50 group-hover:scale-105 transition-transform duration-700"></div>
+                            <div class={`absolute -inset-1 bg-gradient-to-br ${index % 2 === 0 ? 'from-primary/20 to-accent/20' : 'from-accent/20 to-primary/20'} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
+                            
+                            <!-- Main Image Container -->
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 transform group-hover:rotate-y-2 group-hover:rotate-x-2 z-10 border border-white/10 bg-surface/50 backdrop-blur-sm group-hover:shadow-[0_20px_50px_-12px_rgba(var(--color-primary),0.25)]">
+                                
+                                <!-- Shine Effect -->
+                                <div class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent z-20 pointer-events-none"></div>
+                                
+                                <img 
+                                    src={project.data.image} 
+                                    alt={project.data.title} 
+                                    class="w-full h-auto object-cover aspect-video transform transition-transform duration-1000 group-hover:scale-105" 
+                                    loading={index === 0 ? "eager" : "lazy"}
+                                    fetchpriority={index === 0 ? "high" : "auto"}
+                                />
+                                
+                                <!-- Overlay Tech Grid -->
+                                <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10 bg-repeat bg-[length:20px_20px]"></div>
+                            </div>
+
+                            <!-- Decorative Elements -->
+                            <div class="absolute -bottom-6 -right-6 text-9xl font-black text-white/5 select-none -z-10 transition-transform duration-700 group-hover:translate-x-2">
+                                0{index + 1}
+                            </div>
+                        </div>
+    
+                        <!-- Content -->
+                        <div class="w-full md:w-2/5 space-y-8 relative">
+                            <!-- Header -->
+                            <div>
+                                <div class="flex items-center gap-3 text-sm font-mono text-accent mb-3">
+                                    <span class="w-8 h-[1px] bg-accent/50 group-hover:w-16 transition-all duration-500"></span>
+                                    <span>OPEN_SOURCE</span>
+                                </div>
+                                <h2 class="text-4xl md:text-5xl font-bold text-white group-hover:text-transparent bg-clip-text bg-gradient-to-r group-hover:from-white group-hover:to-accent transition-all duration-300 leading-tight">
+                                    {project.data.title}
+                                </h2>
+                            </div>
+                            
+                            <!-- Description -->
+                            <p class="text-text-secondary text-lg leading-relaxed border-l-2 border-white/5 pl-6 group-hover:border-accent/30 transition-colors">
+                                {project.data.description}
+                            </p>
+    
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-3">
+                                {project.data.tags.map(tag => (
+                                    <span class="px-4 py-1.5 text-xs rounded-lg border border-white/10 bg-white/5 text-text-secondary font-mono group-hover:border-primary/30 group-hover:text-white transition-all hover:bg-primary/10 cursor-default">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+    
+                            <!-- Action Button -->
+                            <div class="pt-4">
+                                <a href={project.data.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/50 text-white font-medium hover:gap-5 transition-all duration-300 group/link shadow-lg hover:shadow-accent/10">
+                                    <span>View Repository</span>
+                                    <svg class="w-5 h-5 transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            ) : (
+                <div class="text-center py-32 border border-white/5 rounded-3xl bg-surface/30 backdrop-blur-xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+                    <p class="text-2xl text-text-secondary font-mono relative z-10">
+                        // System Scanning... No projects detected.
+                        <br/>
+                        <span class="text-sm opacity-50 mt-4 block">Initiating code sequence...</span>
+                    </p>
+                </div>
+            )}
+        </div>
+    </div>
+</Layout>
