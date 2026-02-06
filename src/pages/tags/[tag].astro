@@ -19,8 +19,6 @@ export async function getStaticPaths() {
 
 const tag = decodeURIComponent(Astro.params.tag ?? "");
 const { posts } = Astro.props;
-// sortedPosts is now just posts, as they are sorted in getPostsByTag
-const sortedPosts = posts;
 ---
 
 <Layout title={`话题: ${tag}`}>
@@ -72,7 +70,7 @@ const sortedPosts = posts;
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(300px,auto)]"
         >
             {
-                sortedPosts.map((post) => (
+                posts.map((post) => (
                     <div class="h-full">
                         <PostCard post={post} />
                     </div>

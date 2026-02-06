@@ -1,5 +1,6 @@
 # build output
 dist/
+project_structure.txt
 
 # generated types
 .astro/
