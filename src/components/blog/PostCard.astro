@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 import { getPostTheme } from '../../lib/theme';
 import { formatDate } from '../../lib/format';
 import IconQuote from '../icons/IconQuote.astro';
@@ -25,14 +26,16 @@ const hasImage = !!post.data.heroImage;
                 /* === LAYOUT A: IMAGE CARD === */
                 <>
                     <div class="relative aspect-[16/9] w-full overflow-hidden shrink-0 border-b border-white/5">
-                        <img
-                            transition:name={`hero-${post.id}`}
-                            src={post.data.heroImage}
-                            alt={post.data.title}
-                            loading={loading}
-                            fetchpriority={loading === "eager" ? "high" : "auto"}
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
+                        {post.data.heroImage && (
+                            <Image
+                                transition:name={`hero-${post.id}`}
+                                src={post.data.heroImage}
+                                alt={post.data.title}
+                                loading={loading}
+                                fetchpriority={loading === "eager" ? "high" : "auto"}
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                        )}
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
                     </div>
                     <div class="p-5 flex flex-col grow relative z-10 min-h-0">
