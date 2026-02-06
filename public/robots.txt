@@ -1,9 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Allow: /
+Disallow:
 
 # Sitemap
 Sitemap: https://hicancan.top/sitemap-index.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1

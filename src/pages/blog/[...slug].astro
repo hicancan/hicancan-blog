@@ -3,7 +3,7 @@ import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { formatDate } from "../../lib/format";
 import { SITE_CONFIG } from "../../config";
-import Giscus from "@giscus/react";
+import GiscusComments from "../../components/interactive/GiscusComments";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -63,22 +63,7 @@ const { Content } = await render(post);
                     >COMMENTS</span
                 >
             </h2>
-            <Giscus
-                id="comments"
-                repo={SITE_CONFIG.giscus.repo}
-                repoId={SITE_CONFIG.giscus.repoId}
-                category={SITE_CONFIG.giscus.category}
-                categoryId={SITE_CONFIG.giscus.categoryId}
-                mapping="pathname"
-                strict="0"
-                reactionsEnabled="1"
-                emitMetadata="0"
-                inputPosition="bottom"
-                theme="transparent_dark"
-                lang="zh-CN"
-                loading="lazy"
-                client:only="react"
-            />
+            <GiscusComments client:only="react" />
         </div>
     </section>
 </Layout>

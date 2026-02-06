@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @import "./typography.css";
+@import "katex/dist/katex.min.css";
 
 @theme {
   /* Colors */
