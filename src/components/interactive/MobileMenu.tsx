@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { NAV_ITEMS } from '../config';
-import { useLockBodyScroll } from '../hooks/useLockBodyScroll';
+import { NAV_ITEMS } from '../../config';
+import { useLockBodyScroll } from '../../hooks/useLockBodyScroll';
 
 export default function MobileMenu() {
     const [isOpen, setIsOpen] = useState(false);

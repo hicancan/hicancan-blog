@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PostCard from "../components/blog/PostCard.astro";
 import HeroGlass from "../components/home/HeroGlass.astro";
-import { getSortedPosts } from "../utils/content";
+import { getSortedPosts } from "../lib/content";
 
 const posts = await getSortedPosts();
 

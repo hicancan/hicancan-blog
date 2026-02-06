@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getTagCounts, sortTagsByCount } from "../../utils/content";
+import { getTagCounts, sortTagsByCount } from "../../lib/content";
 
 const tagCounts = await getTagCounts();
 const sortedTags = sortTagsByCount(tagCounts);
