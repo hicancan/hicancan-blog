@@ -12,7 +12,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const {
     title,
-    description = "A digital garden for code, anime, and thoughts.",
+    description = SITE_CONFIG.description,
     image = SITE_CONFIG.avatar.src,
 } = Astro.props;
 ---

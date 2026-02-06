@@ -11,7 +11,8 @@ import { SITE_CONFIG } from "../config";
             <!-- Brand & Copyright -->
             <div class="text-center md:text-left">
                 <p class="text-sm text-text-secondary">
-                    &copy; {today.getFullYear()} {SITE_CONFIG.author}. All Rights Reserved.
+                    &copy; {today.getFullYear()}
+                    {SITE_CONFIG.author}. All Rights Reserved.
                 </p>
                 <p class="text-xs text-text-secondary/60 mt-1">
                     Built with <a
@@ -27,39 +28,54 @@ import { SITE_CONFIG } from "../config";
                         >Tailwind CSS v4</a
                     >.
                 </p>
-                <p
-                    id="uptime-display"
-                    class="text-xs text-text-secondary/40 mt-1 font-mono tabular-nums"
+                <uptime-tracker
+                    data-start={SITE_CONFIG.startDate.toISOString()}
+                    class="block text-xs text-text-secondary/40 mt-1 font-mono tabular-nums"
                 >
                     <!-- Runtime will be injected here -->
-                </p>
-                <script
-                    is:inline
-                    define:vars={{ startDate: SITE_CONFIG.startDate }}
-                >
-                    function updateUptime() {
-                        const start = new Date(startDate);
-                        const now = new Date();
-                        const diff = now.getTime() - start.getTime();
+                </uptime-tracker>
+                <script>
+                    class UptimeTracker extends HTMLElement {
+                        private intervalId: number | undefined;
 
-                        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                        const hours = Math.floor(
-                            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-                        );
-                        const minutes = Math.floor(
-                            (diff % (1000 * 60 * 60)) / (1000 * 60),
-                        );
-                        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                        connectedCallback() {
+                            const startDateStr = this.dataset.start;
+                            if (!startDateStr) return;
+                            const start = new Date(startDateStr);
 
-                        const display =
-                            document.getElementById("uptime-display");
-                        if (display) {
-                            display.innerText = `已稳定运行 ${days}天 ${hours}小时 ${minutes}分 ${seconds}秒`;
+                            const update = () => {
+                                const now = new Date();
+                                const diff = now.getTime() - start.getTime();
+
+                                const days = Math.floor(
+                                    diff / (1000 * 60 * 60 * 24),
+                                );
+                                const hours = Math.floor(
+                                    (diff % (1000 * 60 * 60 * 24)) /
+                                        (1000 * 60 * 60),
+                                );
+                                const minutes = Math.floor(
+                                    (diff % (1000 * 60 * 60)) / (1000 * 60),
+                                );
+                                const seconds = Math.floor(
+                                    (diff % (1000 * 60)) / 1000,
+                                );
+
+                                this.innerText = `已稳定运行 ${days}天 ${hours}小时 ${minutes}分 ${seconds}秒`;
+                            };
+
+                            update(); // Initial run
+                            this.intervalId = window.setInterval(update, 1000);
+                        }
+
+                        disconnectedCallback() {
+                            if (this.intervalId) {
+                                window.clearInterval(this.intervalId);
+                            }
                         }
                     }
 
-                    updateUptime();
-                    setInterval(updateUptime, 1000);
+                    customElements.define("uptime-tracker", UptimeTracker);
                 </script>
             </div>
 

@@ -1,24 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getTagCounts, sortTagsByCount } from "../../utils/content";
 
-const posts = await getCollection("blog");
-const tags = [...new Set(posts.map((post) => post.data.tags || []).flat())];
-const tagCounts = tags.reduce(
-    (acc, tag) => {
-        acc[tag] = posts.filter((post) =>
-            (post.data.tags || []).includes(tag),
-        ).length;
-        return acc;
-    },
-    {} as Record<string, number>,
-);
-
-// Sort tags by count
-const sortedTags = Object.keys(tagCounts).sort(
-    (a, b) => tagCounts[b] - tagCounts[a],
-);
-
+const tagCounts = await getTagCounts();
+const sortedTags = sortTagsByCount(tagCounts);
 ---
 
 <Layout title="话题矩阵">
