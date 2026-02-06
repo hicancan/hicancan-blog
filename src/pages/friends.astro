@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { SITE_CONFIG } from "../config";
 import { getCollection } from "astro:content";
 
 const friends = await getCollection("friends");
@@ -87,7 +88,7 @@ const friends = await getCollection("friends");
 
             <!-- Add Friend Card (Holographic Portal) -->
             <a
-                href="mailto:contact@hicancan.top"
+                href={`mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('友链申请')}`}
                 class="group relative h-[400px] block cursor-pointer"
             >
                 <div class="absolute inset-0 bg-white/5 rounded-3xl border border-dashed border-white/20 hover:border-accent/50 hover:bg-accent/5 transition-all duration-300 flex flex-col items-center justify-center gap-6 overflow-hidden">
@@ -108,3 +109,4 @@ const friends = await getCollection("friends");
         </div>
     </div>
 </Layout>
+

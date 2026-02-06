@@ -1,0 +1,51 @@
+---
+interface Props {
+    startDate: string;
+    class?: string;
+}
+
+const { startDate, class: className } = Astro.props;
+---
+
+<uptime-tracker data-start={startDate} class={className}>
+    <!-- Runtime will be injected here -->
+</uptime-tracker>
+
+<script>
+    class UptimeTracker extends HTMLElement {
+        private intervalId: number | undefined;
+
+        connectedCallback() {
+            const startDateStr = this.dataset.start;
+            if (!startDateStr) return;
+            const start = new Date(startDateStr);
+
+            const update = () => {
+                const now = new Date();
+                const diff = now.getTime() - start.getTime();
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor(
+                    (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+                );
+                const minutes = Math.floor(
+                    (diff % (1000 * 60 * 60)) / (1000 * 60),
+                );
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                this.innerText = `已稳定运行 ${days}天 ${hours}小时 ${minutes}分 ${seconds}秒`;
+            };
+
+            update(); // Initial run
+            this.intervalId = window.setInterval(update, 1000);
+        }
+
+        disconnectedCallback() {
+            if (this.intervalId) {
+                window.clearInterval(this.intervalId);
+            }
+        }
+    }
+
+    customElements.define("uptime-tracker", UptimeTracker);
+</script>

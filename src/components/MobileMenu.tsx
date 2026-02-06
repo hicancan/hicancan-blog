@@ -1,37 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NAV_ITEMS } from '../config';
+import { useLockBodyScroll } from '../hooks/useLockBodyScroll';
 
 export default function MobileMenu() {
     const [isOpen, setIsOpen] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const originalOverflow = useRef<string | null>(null);
 
     useEffect(() => {
         setIsMounted(true);
     }, []);
 
     // Lock body scroll when menu is open
-    useEffect(() => {
-        if (isOpen) {
-            if (originalOverflow.current === null) {
-                originalOverflow.current = document.body.style.overflow || '';
-            }
-            document.body.style.overflow = 'hidden';
-        } else {
-            if (originalOverflow.current !== null) {
-                document.body.style.overflow = originalOverflow.current;
-            } else {
-                document.body.style.overflow = '';
-            }
-        }
-        return () => {
-            if (originalOverflow.current !== null) {
-                document.body.style.overflow = originalOverflow.current;
-            } else {
-                document.body.style.overflow = '';
-            }
-        };
-    }, [isOpen]);
+    useLockBodyScroll(isOpen);
 
     if (!isMounted) return null;
 

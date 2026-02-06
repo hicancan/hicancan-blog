@@ -6,12 +6,7 @@ const tagCounts = await getTagCounts();
 const sortedTags = sortTagsByCount(tagCounts);
 ---
 
-<Layout title="话题矩阵">
-    <!-- Nebula Background Atmosphere -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-pulse"></div>
-        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[128px] animate-pulse delay-1000"></div>
-    </div>
+<Layout title="话题矩阵" nebulaVariant="matrix">
 
     <div class="max-w-7xl mx-auto px-4 py-20 relative z-10">
         <!-- Header -->
@@ -80,46 +75,10 @@ const sortedTags = sortTagsByCount(tagCounts);
     </div>
 </Layout>
 
-<script is:inline data-astro-rerun>
-    const initScrollAnimations = () => {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        if (!('IntersectionObserver' in window)) {
-            elements.forEach((el) => el.classList.remove('opacity-0', 'translate-y-8'));
-            return;
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.remove('opacity-0', 'translate-y-8');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        elements.forEach((el) => observer.observe(el));
-    };
-
+<script>
+    import { initScrollAnimations } from "../../scripts/animations";
     initScrollAnimations();
     document.addEventListener('astro:page-load', initScrollAnimations);
 </script>
 
-<style>
-    .bg-300 {
-        background-size: 300% 300%;
-    }
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-    .animate-gradient {
-        animation: gradient 8s ease infinite;
-    }
-</style>
+

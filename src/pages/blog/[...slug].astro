@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { formatDate } from "../../utils/cover";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
 
 const post = Astro.props;
 const { Content } = await render(post);
-import { formatDate } from "../../utils/cover";
+
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
@@ -49,48 +50,4 @@ import { formatDate } from "../../utils/cover";
     </article>
 </Layout>
 
-<style is:global>
-    /* Typography Overrides for "prose" to match theme */
-    .prose {
-        --tw-prose-body: var(--color-text-secondary);
-        --tw-prose-headings: var(--color-text-primary);
-        --tw-prose-links: var(--color-accent);
-        --tw-prose-bold: var(--color-text-primary);
-        --tw-prose-code: var(--color-accent);
-        --tw-prose-quotes: var(--color-text-secondary);
-        --tw-prose-quote-borders: var(--color-primary);
-    }
 
-    .prose h1,
-    .prose h2,
-    .prose h3,
-    .prose h4 {
-        font-family: var(--font-sans);
-        letter-spacing: -0.02em;
-    }
-
-    .prose p {
-        line-height: 1.8;
-    }
-
-    .prose code {
-        background-color: rgba(30, 41, 59, 0.5);
-        padding: 0.2em 0.4em;
-        border-radius: 0.25rem;
-        font-weight: 400;
-        font-family: var(--font-mono);
-    }
-
-    .prose pre {
-        background-color: #0d1117 !important; /* Github Dark Dimmed-ish */
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0.75rem;
-    }
-
-    .prose img {
-        border-radius: 0.75rem;
-        box-shadow:
-            0 4px 6px -1px rgba(0, 0, 0, 0.1),
-            0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-</style>
