@@ -8,7 +8,6 @@
   --color-surface: rgba(30, 41, 59, 0.7);
   --color-primary: #6366f1;
   --color-accent: #22d3ee;
-  --color-accent-glow: #d946ef;
 
   /* Text Colors */
   --color-text-primary: #f8fafc;
@@ -19,6 +18,21 @@
   --font-sans: 'Inter', 'Outfit', ui-sans-serif, system-ui, sans-serif;
   --font-serif: 'Noto Serif SC', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Animations */
+  --animate-gradient: gradient 6s ease infinite;
+}
+
+@keyframes gradient {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @layer base {
@@ -84,5 +98,9 @@
 
   .rotate-x-2 {
     transform: rotateX(2deg);
+  }
+
+  .bg-300 {
+    background-size: 300% 300%;
   }
 }
