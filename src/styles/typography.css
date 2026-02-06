@@ -1,4 +1,5 @@
 @layer components {
+
   /* Typography Overrides for "prose" to match theme */
   .prose {
     --tw-prose-body: var(--color-text-secondary);
@@ -31,7 +32,8 @@
   }
 
   .prose pre {
-    background-color: #0d1117 !important; /* Github Dark Dimmed-ish */
+    background-color: var(--color-code-bg) !important;
+    /* Github Dark Dimmed-ish */
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.75rem;
   }

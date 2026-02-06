@@ -41,7 +41,7 @@ export default function MobileMenu() {
 
             {/* Backdrop & Menu Container */}
             <div
-                className={`fixed inset-0 z-40 bg-main/90 backdrop-blur-3xl transition-all duration-500 ease-in-out ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                className={`fixed inset-0 z-[9999] bg-main/95 backdrop-blur-3xl transition-all duration-500 ease-in-out ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                     }`}
             >
                 {/* Nebula Effects in Menu */}

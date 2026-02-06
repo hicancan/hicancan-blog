@@ -1,0 +1,25 @@
+---
+/**
+ * AnimatedPage - Wrapper component for pages with scroll animations
+ * Eliminates duplicate script registration across pages
+ */
+interface Props {
+    class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class={className}>
+    <slot />
+</div>
+
+<script>
+    import { initScrollAnimations } from "../../scripts/animations";
+
+    // Initialize on first load
+    initScrollAnimations();
+
+    // Re-initialize on View Transitions navigation
+    document.addEventListener("astro:page-load", initScrollAnimations);
+</script>
