@@ -57,10 +57,11 @@ const { Content } = await render(post);
             <h2
                 class="text-xl font-bold mb-6 flex items-center gap-3 text-white/90"
             >
-                <span class="text-accent">#</span> 评论区
+                <span class="text-accent">#</span>
+                {SITE_CONFIG.ui.comments}
                 <span
                     class="text-xs font-mono text-text-secondary/70 tracking-widest"
-                    >COMMENTS</span
+                    >{SITE_CONFIG.ui.commentsLabel}</span
                 >
             </h2>
             <GiscusComments client:only="react" />

@@ -2,6 +2,22 @@
 import "../../styles/global.css";
 import { SITE_CONFIG } from "../../config";
 
+// Font Optimizations - Self-hosted via Fontsource
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/800.css";
+
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/700.css";
+
+import "@fontsource/noto-serif-sc/400.css";
+import "@fontsource/noto-serif-sc/700.css";
+
+import "@fontsource/outfit/400.css";
+import "@fontsource/outfit/700.css";
+import "@fontsource/outfit/900.css";
+
 interface Props {
     title: string;
     description?: string;
@@ -26,19 +42,6 @@ const {
 <link rel="icon" type="image/jpeg" href={SITE_CONFIG.avatar.src} />
 <link rel="apple-touch-icon" href={SITE_CONFIG.avatar.src} />
 <meta name="generator" content={Astro.generator} />
-
-<!-- Font Preloads (Google Fonts: Inter & JetBrains Mono & Noto Serif SC) -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-    rel="preload"
-    as="style"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-/>
-<link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Outfit:wght@400;700;900&display=swap"
-    rel="stylesheet"
-/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

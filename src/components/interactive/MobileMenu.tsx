@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NAV_ITEMS } from '../../config';
 import { useLockBodyScroll } from '../../hooks/useLockBodyScroll';
+import { IconClose } from '../icons/IconClose';
+import { IconMenu } from '../icons/IconMenu';
 
 export default function MobileMenu() {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,23 +26,17 @@ export default function MobileMenu() {
                     className="relative p-2 text-text-secondary hover:text-white transition-colors focus:outline-none"
                     aria-label="Open menu"
                 >
-                    <div className="w-6 h-5 relative flex flex-col justify-between">
-                        <span className="w-full h-0.5 bg-current rounded-full" />
-                        <span className="w-full h-0.5 bg-current rounded-full" />
-                        <span className="w-full h-0.5 bg-current rounded-full" />
-                    </div>
+                    <IconMenu className="w-6 h-6" />
                 </button>
             )}
 
             {/* Full Screen Menu Overlay */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 w-screen h-screen bg-[#0f172a] overflow-hidden"
+                    className="fixed inset-0 w-screen h-screen bg-main/95 backdrop-blur-3xl overflow-hidden"
                     style={{ zIndex: 99999 }}
                 >
-                    {/* Nebula Effects */}
-                    <div className="absolute top-20 right-10 w-64 h-64 bg-primary/30 rounded-full blur-[100px] pointer-events-none" />
-                    <div className="absolute bottom-20 left-10 w-64 h-64 bg-accent/30 rounded-full blur-[100px] pointer-events-none" />
+                    {/* Global background is already present, so we rely on transparency or just clean dark theme */}
 
                     {/* Close Button - Fixed at top right */}
                     <button
@@ -48,19 +44,7 @@ export default function MobileMenu() {
                         className="absolute top-6 right-6 p-2 text-white/80 hover:text-accent transition-colors focus:outline-none"
                         aria-label="Close menu"
                     >
-                        <svg
-                            className="w-8 h-8"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M6 18L18 6M6 6l12 12"
-                            />
-                        </svg>
+                        <IconClose className="w-8 h-8" />
                     </button>
 
                     {/* Menu Content - Centered */}

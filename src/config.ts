@@ -28,6 +28,11 @@ interface SiteConfig {
         bilibili: string;
         github: string;
     };
+    ui: {
+        viewArchive: string;
+        comments: string;
+        commentsLabel: string;
+    };
 }
 
 export const SITE_CONFIG: SiteConfig = {
@@ -54,6 +59,11 @@ export const SITE_CONFIG: SiteConfig = {
     social: {
         bilibili: 'https://space.bilibili.com/1144561698',
         github: 'https://github.com/hicancan',
+    },
+    ui: {
+        viewArchive: '进入归档',
+        comments: '评论区',
+        commentsLabel: 'COMMENTS',
     }
 };
 
