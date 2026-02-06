@@ -1,0 +1,14 @@
+{
+    "title": "Quantum QML-IDS",
+    "description": "基于量子机器学习的 QKD 窃听检测与 ODMR 异常检测复现框架。",
+    "tags": [
+        "Quantum Computing",
+        "Qiskit",
+        "PennyLane",
+        "Python"
+    ],
+    "image": "https://socialify.git.ci/hicancan/quantumsec-qkd-odmr-qml/image?description=1&font=Inter&language=1&name=1&owner=1&pattern=Circuit%20Board&theme=Dark",
+    "link": "https://github.com/hicancan/quantumsec-qkd-odmr-qml",
+    "featured": true,
+    "priority": 90
+}
