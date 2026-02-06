@@ -5,11 +5,12 @@ import Footer from "../components/common/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 import NebulaBackground from "../components/common/NebulaBackground.astro";
 import { SITE_CONFIG } from "../config";
+import type { NebulaVariant } from "../types";
 
 interface Props {
 	title?: string;
 	description?: string;
-	nebulaVariant?: "default" | "galaxy" | "guestbook" | "matrix" | "none";
+	nebulaVariant?: NebulaVariant;
 	image?: string;
 }
 

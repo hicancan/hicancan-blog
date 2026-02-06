@@ -4,7 +4,11 @@ import { useLockBodyScroll } from '../../hooks/useLockBodyScroll';
 import { IconClose } from '../icons/IconClose';
 import { IconMenu } from '../icons/IconMenu';
 
-export default function MobileMenu() {
+interface MobileMenuProps {
+    currentPath?: string;
+}
+
+export default function MobileMenu({ currentPath = '' }: MobileMenuProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
 
@@ -50,20 +54,24 @@ export default function MobileMenu() {
                     {/* Menu Content - Centered */}
                     <div className="flex flex-col items-center justify-center h-full w-full px-8">
                         <nav className="flex flex-col items-center space-y-6">
-                            {NAV_ITEMS.map((item, index) => (
-                                <a
-                                    key={item.path}
-                                    href={item.path}
-                                    onClick={() => setIsOpen(false)}
-                                    className="text-2xl font-bold font-sans tracking-tight text-white/90 hover:text-accent transition-colors duration-300"
-                                >
-                                    <span className="text-lg text-accent/60 mr-3 font-mono">
-                                        0{index + 1}.
-                                    </span>
-                                    {item.name}
-                                </a>
-                            ))}
+                            {NAV_ITEMS.map((item, index) => {
+                                const isActive = currentPath === item.path || (item.path !== '/' && currentPath.startsWith(item.path));
+                                return (
+                                    <a
+                                        key={item.path}
+                                        href={item.path}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`text-2xl font-bold font-sans tracking-tight transition-colors duration-300 ${isActive ? 'text-accent' : 'text-white/90 hover:text-accent'}`}
+                                    >
+                                        <span className={`text-lg mr-3 font-mono ${isActive ? 'text-accent' : 'text-accent/60'}`}>
+                                            0{index + 1}.
+                                        </span>
+                                        {item.name}
+                                    </a>
+                                )
+                            })}
                         </nav>
+
 
                         {/* Decorative line */}
                         <div className="w-20 h-1 bg-accent/40 rounded-full mt-10" />

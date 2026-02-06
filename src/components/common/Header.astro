@@ -49,20 +49,31 @@ import IconHome from "../icons/IconHome.astro";
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8">
                 {
-                    NAV_ITEMS.map((item) => (
-                        <a
-                            href={item.path}
-                            class="relative text-sm font-medium text-text-secondary hover:text-white transition-colors py-2 group"
-                        >
-                            {item.name}
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
-                        </a>
-                    ))
+                    NAV_ITEMS.map((item) => {
+                        const isActive =
+                            Astro.url.pathname === item.path ||
+                            (item.path !== "/" &&
+                                Astro.url.pathname.startsWith(item.path));
+                        return (
+                            <a
+                                href={item.path}
+                                class={`relative text-sm font-medium transition-colors py-2 group ${isActive ? "text-white" : "text-text-secondary hover:text-white"}`}
+                            >
+                                {item.name}
+                                <span
+                                    class={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                                />
+                            </a>
+                        );
+                    })
                 }
             </nav>
 
             <!-- Mobile Menu -->
-            <MobileMenu client:media="(max-width: 768px)" />
+            <MobileMenu
+                client:media="(max-width: 768px)"
+                currentPath={Astro.url.pathname}
+            />
         </div>
     </div>
 </header>
