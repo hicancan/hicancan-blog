@@ -1,7 +1,7 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseHead from "../components/common/BaseHead.astro";
+import Header from "../components/common/Header.astro";
+import Footer from "../components/common/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 import NebulaBackground from "../components/NebulaBackground.astro";
 
@@ -25,7 +25,7 @@ const {
 		<ClientRouter />
 	</head>
 	<body
-		class="bg-main text-text-primary antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-accent/30 selection:text-white"
+		class="flex flex-col relative selection:bg-accent/30 selection:text-white"
 	>
 		<NebulaBackground variant={nebulaVariant} />
 
