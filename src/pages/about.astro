@@ -2,8 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import { SITE_CONFIG } from '../config';
 import { Image } from 'astro:assets';
+import { getEntry, render } from 'astro:content';
 
-import { skills, timeline } from '../data/about';
+const authorFn = await getEntry('authors', 'hicancan');
+if (!authorFn) {
+  throw new Error("Author 'hicancan' not found in content/authors");
+}
+const { Content } = await render(authorFn);
+const { skills, timeline } = authorFn.data;
 ---
 
 <Layout title="关于我">
@@ -84,15 +90,7 @@ import { skills, timeline } from '../data/about';
                 </h3>
                 
                 <div class="prose prose-invert max-w-none text-lg leading-relaxed text-text-secondary/90 space-y-6">
-                    <p>
-                        喜欢把灵感变成可运行的作品，也在记录过程与思考。
-                    </p>
-                    <p>
-                        目前专注于 <strong class="text-accent">安全</strong> 与 <strong class="text-accent">CTF</strong> 相关方向，享受解题与实践。
-                    </p>
-                    <p>
-                        也在探索 <strong class="text-white border-b border-white/20 border-dashed">AI</strong> 与 <strong class="text-white border-b border-white/20 border-dashed">工程化</strong> 结合的可能，希望做出可用的作品。
-                    </p>
+                    <Content />
                 </div>
             </div>
         </div>

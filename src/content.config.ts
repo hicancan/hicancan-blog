@@ -30,11 +30,28 @@ const projects = defineCollection({
         title: z.string(),
         description: z.string(),
         tags: z.array(z.string()),
-        image: z.string(),
+        image: z.string().optional(),
         link: z.string(),
         featured: z.boolean().default(false),
         priority: z.number().default(0),
     }),
 });
 
-export const collections = { blog, friends, projects };
+const authors = defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/content/authors" }),
+    schema: z.object({
+        name: z.string(),
+        role: z.string().optional(),
+        skills: z.array(z.object({
+            category: z.string(),
+            items: z.array(z.string())
+        })),
+        timeline: z.array(z.object({
+            year: z.string(),
+            title: z.string(),
+            desc: z.string()
+        })),
+    }),
+});
+
+export const collections = { blog, friends, projects, authors };
