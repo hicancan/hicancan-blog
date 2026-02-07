@@ -1,19 +1,19 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import { formatDate } from "../../lib/format";
-import { SITE_CONFIG } from "../../config";
-import GiscusComments from "../../components/interactive/GiscusComments";
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { formatDate } from '../../lib/format';
+import { SITE_CONFIG } from '../../config';
+import GiscusComments from '../../components/interactive/GiscusComments';
 
 export async function getStaticPaths() {
-    const posts = await getCollection("blog");
+    const posts = await getCollection('blog');
     return posts.map((post) => ({
         params: { slug: post.id },
         props: post,
     }));
 }
 
-const post: CollectionEntry<"blog"> = Astro.props;
+const post: CollectionEntry<'blog'> = Astro.props;
 const { Content } = await render(post);
 ---
 
@@ -32,9 +32,7 @@ const { Content } = await render(post);
                 </time>
                 {
                     post.data.updatedDate && (
-                        <span class="italic">
-                            (Updated: {formatDate(post.data.updatedDate)})
-                        </span>
+                        <span class="italic">(Updated: {formatDate(post.data.updatedDate)})</span>
                     )
                 }
             </div>
@@ -58,13 +56,10 @@ const { Content } = await render(post);
         <div
             class="relative bg-surface/20 backdrop-blur-2xl border border-white/5 rounded-3xl p-6 md:p-8"
         >
-            <h2
-                class="text-xl font-bold mb-6 flex items-center gap-3 text-white/90"
-            >
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-3 text-white/90">
                 <span class="text-accent">#</span>
                 {SITE_CONFIG.ui.comments}
-                <span
-                    class="text-xs font-mono text-text-secondary/70 tracking-widest"
+                <span class="text-xs font-mono text-text-secondary/70 tracking-widest"
                     >{SITE_CONFIG.ui.commentsLabel}</span
                 >
             </h2>

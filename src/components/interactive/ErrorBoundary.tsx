@@ -1,4 +1,4 @@
-import React, { Component, type ErrorInfo, type ReactNode } from 'react';
+import { Component, type ErrorInfo, type ReactNode } from 'react';
 
 interface Props {
     children: ReactNode;
@@ -29,16 +29,18 @@ export class ErrorBoundary extends Component<Props, State> {
 
     render() {
         if (this.state.hasError) {
-            return this.props.fallback || (
-                <div className="text-center py-8 text-text-secondary">
-                    <p className="font-mono text-sm">// 组件加载失败</p>
-                    <button
-                        onClick={() => this.setState({ hasError: false })}
-                        className="mt-4 px-4 py-2 text-xs border border-white/10 rounded-lg hover:bg-white/5 transition-colors"
-                    >
-                        重试
-                    </button>
-                </div>
+            return (
+                this.props.fallback || (
+                    <div className="text-center py-8 text-text-secondary">
+                        <p className="font-mono text-sm">// 组件加载失败</p>
+                        <button
+                            onClick={() => this.setState({ hasError: false })}
+                            className="mt-4 px-4 py-2 text-xs border border-white/10 rounded-lg hover:bg-white/5 transition-colors"
+                        >
+                            重试
+                        </button>
+                    </div>
+                )
             );
         }
 

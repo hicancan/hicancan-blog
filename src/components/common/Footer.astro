@@ -1,25 +1,24 @@
 ---
 const today = new Date();
-import { SITE_CONFIG } from "../../config";
-import UptimeTracker from "../interactive/UptimeTracker.astro";
-import IconBilibili from "../icons/IconBilibili.astro";
-import IconGithub from "../icons/IconGithub.astro";
-import IconEmail from "../icons/IconEmail.astro";
+import { SITE_CONFIG } from '../../config';
+import UptimeTracker from '../interactive/UptimeTracker.astro';
+import IconBilibili from '../icons/IconBilibili.astro';
+import IconGithub from '../icons/IconGithub.astro';
+import IconEmail from '../icons/IconEmail.astro';
 ---
 
 <footer class="border-t border-white/5 bg-main/30 mt-20 backdrop-blur-sm">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div
-            class="flex flex-col md:flex-row justify-between items-center gap-6"
-        >
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
             <!-- Brand & Copyright -->
             <div class="text-center md:text-left">
                 <p class="text-sm text-text-secondary">
                     &copy; {today.getFullYear()}
-                    {SITE_CONFIG.author}. All Rights Reserved.
+                    {SITE_CONFIG.author}. {SITE_CONFIG.ui.footer.rights}
                 </p>
                 <p class="text-xs text-text-secondary/60 mt-1">
-                    Built with <a
+                    {SITE_CONFIG.ui.footer.builtWith}
+                    <a
                         href="https://astro.build"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -28,8 +27,7 @@ import IconEmail from "../icons/IconEmail.astro";
                         href="https://tailwindcss.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="hover:text-accent transition-colors"
-                        >Tailwind CSS v4</a
+                        class="hover:text-accent transition-colors">Tailwind CSS v4</a
                     >.
                 </p>
                 <UptimeTracker

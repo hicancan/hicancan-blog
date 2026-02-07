@@ -11,7 +11,7 @@ const { variant = 'default' } = Astro.props;
 {variant !== 'none' && (
 <div class="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden will-change-transform">
     {/* Global Noise Texture (Always present) */}
-    <div class="absolute inset-0 z-[1] opacity-[0.15] mix-blend-overlay pointer-events-none bg-noise"></div>
+    <div class="absolute inset-0 z-1 opacity-15 mix-blend-overlay pointer-events-none bg-noise"></div>
 
     {variant === 'default' && (
         <>

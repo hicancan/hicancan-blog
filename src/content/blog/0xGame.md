@@ -21,7 +21,7 @@ tags:
 `Жఱ൲ඌיય೬ࢶЖۍךะtঋළม۹ρԊҽඹ`
 3. 进过多个不同的base编码尝试后，猜测该字符串是由base2048编码的
 4. 搜索找到一个在线base2048解码工具  
-https://nerdmosis.com/tools/encode-and-decode-base2048
+<https://nerdmosis.com/tools/encode-and-decode-base2048>
 5. 利用该在线解码工具解码后得到flag  
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052882.png)
 6. flag：`0xGame{W3lc0me_t0_0xG4me!!!}`
@@ -51,7 +51,7 @@ https://nerdmosis.com/tools/encode-and-decode-base2048
 
 1. 密文：`0yHbnf{Uif_Cfhjoojoh_Pg_Dszqup}`  
 提示：凯撒加密。
-2. 搜索到凯撒加密解密在线工具：https://ctf.bugku.com/tool/caesar
+2. 搜索到凯撒加密解密在线工具：<https://ctf.bugku.com/tool/caesar>
 3. 由于不知道偏移量所以需要枚举偏移量，偏移量为1-25  
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052888.png)  
 逐个尝试得到25个解密后的字符串，发现偏移量为1时解密后的字符串有意义
@@ -90,12 +90,12 @@ m3 = b64encode(m[3])
 print(f'm0 = {m0}\nm1 = {m1}\nm2 = {m2}\nm3 = {m3}')
 ```
 
-2. 分析：为了找出flag，我们需要对每个部分进行逆向操作。
+1. 分析：为了找出flag，我们需要对每个部分进行逆向操作。
     1. m0是原始的字节串的一部分。
     2. m1是一个长整数，我们需要将其转换回字节串。
     3. m2是一个十六进制字符串，我们需要将其转换回字节串。
     4. m3是一个base64编码的字符串，我们需要对其进行解码。
-3. 写出逆向解码代码
+2. 写出逆向解码代码
 
 ```python
 from Crypto.Util.number import long_to_bytes
@@ -118,7 +118,7 @@ flag = flag_bytes.decode()
 print(flag)
 ```
 
-4. 运行结果
+1. 运行结果
 
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052890.png)  
 编译运行得到flag：
@@ -175,7 +175,7 @@ print(Encrypt(flag,key))
 # 0lCcop{oyd94092-g8mq-4963-88b6-4helrxdhm6q7}
 ```
 
-2. 分析：为了找出flag，首先我们需要5个字符的密钥，然后使用这个密钥对加密后的字符串进行解密。  
+1. 分析：为了找出flag，首先我们需要5个字符的密钥，然后使用这个密钥对加密后的字符串进行解密。  
 由于我们确定题解的格式是0XGame{}，所以我们可以通过前五个字母的明文与密文的对应关系来推断出密钥。下面通过编程实现密钥的推断：
 
 ```python
@@ -224,7 +224,7 @@ print("key =", key)
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052891.png)  
 key = OWCCL  
 3. 使用密钥解密加密后的字符串：  
-搜索得到Vigenere加密解密在线工具：https://ctf.bugku.com/tool/vigenere  
+搜索得到Vigenere加密解密在线工具：<https://ctf.bugku.com/tool/vigenere>  
 利用key = OWCCL进行解密，得到flag：  
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052892.png)  
 4. 得到flag:
@@ -284,7 +284,7 @@ Encrypt_msg = 344136655393256706
 flag = '0xGame{' + MD5(m) + '}'
 ```
 
-2. 分析：我们可以首先使用RSA解密公式$m = c^dmodN$  
+1. 分析：我们可以首先使用RSA解密公式$m = c^dmodN$  
 来解密密文 c，得到原始消息 m。然后，我们计算 m 的MD5哈希值，并将其拼接到固定的字符串 ‘0xGame{’ 后面，形成最终的flag，实现代码如下：
 
 ```python
@@ -327,7 +327,7 @@ print(flag)
 
 #### ez_login
 
-1. 题目给出一个网站http://47.76.151.192:60084  
+1. 题目给出一个网站<http://47.76.151.192:60084>  
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052896.png)
 
 2. 分析：有两个输入框，尝试使用burpsuite的intruder进行弱口令爆破密码：
@@ -365,10 +365,10 @@ response = requests.post(url, headers=headers)
 print(response.text)
 ```
 
-3. 运行结果如下：  
+1. 运行结果如下：  
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052903.png)  
 于是用get方式传递hello=world
-4. 此次类推，每一步修改都按照运行的结果进行：得到最终的代码：
+2. 此次类推，每一步修改都按照运行的结果进行：得到最终的代码：
 
 ```python
 import requests
@@ -398,17 +398,17 @@ response = requests.post(url, headers=headers, data=data,params=params, cookies=
 print(response.text)
 ```
 
-5. 运行结果如下：  
+1. 运行结果如下：  
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052904.png)
 
-6. 得到flag：
+2. 得到flag：
 
 `0xgame{1cd6a904-725f-11ef-aafb-d4d8533ec05c}`
 
 #### hello_web
 
 1. 题目给出一个网站Flag  
-http://8.130.84.100:50001/  
+<http://8.130.84.100:50001/>  
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052905.png)
 2. 首先考虑查看源代码，发现右键后不行确定解题方向：  
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052906.png)
@@ -453,11 +453,11 @@ http://8.130.84.100:50001/
 
 ### Blockchain
 
-#### 肘，上链！
+#### 肘，上链
 
 1. 题目给了服务器端口、rcp、水龙头地址：  
 nc 156.238.233.7 20000  
-rpc http://156.238.233.7:8545  
+rpc <http://156.238.233.7:8545>  
 faucet 156.238.233.7:8080
 2. 在metamask中连接到网络，创建一个账户，然后使用水龙头地址输入自己的地址获取一些以太币：  
 ![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052915.png)  

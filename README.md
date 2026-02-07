@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./public/favicon.svg" alt="Logo" width="100" height="100" onerror="this.src='https://hicancan.top/favicon.svg'">
+<img src="./public/favicon.svg" alt="Logo" width="100" height="100">
 
 # Astro Nebula Blog
 

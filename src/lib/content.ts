@@ -8,23 +8,23 @@ export async function getSortedPosts(): Promise<CollectionEntry<'blog'>[]> {
 export async function getUniqueTags(): Promise<string[]> {
     const posts = await getCollection('blog');
     const tags = new Set<string>();
-    posts.forEach(post => {
-        post.data.tags?.forEach(tag => tags.add(tag));
+    posts.forEach((post) => {
+        post.data.tags?.forEach((tag) => tags.add(tag));
     });
     return Array.from(tags).sort();
 }
 
 export async function getPostsByTag(tag: string): Promise<CollectionEntry<'blog'>[]> {
     const posts = await getSortedPosts();
-    return posts.filter(post => post.data.tags?.includes(tag));
+    return posts.filter((post) => post.data.tags?.includes(tag));
 }
 
 export async function getTagCounts(): Promise<Record<string, number>> {
     const posts = await getCollection('blog');
     const counts: Record<string, number> = {};
 
-    posts.forEach(post => {
-        post.data.tags?.forEach(tag => {
+    posts.forEach((post) => {
+        post.data.tags?.forEach((tag) => {
             counts[tag] = (counts[tag] || 0) + 1;
         });
     });

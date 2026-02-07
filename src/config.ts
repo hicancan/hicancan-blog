@@ -32,6 +32,65 @@ interface SiteConfig {
         viewArchive: string;
         comments: string;
         commentsLabel: string;
+
+        hero: {
+            ctaButton: string;
+        };
+
+        projects: {
+            title: string;
+            subtitle: string;
+            viewRepo: string;
+            noProjects: string;
+            scanning: string;
+        };
+
+        footer: {
+            rights: string;
+            builtWith: string;
+            techStack: string;
+        };
+
+        notFound: {
+            title: string;
+            subtitle: string;
+            message: string;
+            button: string;
+        };
+
+        mobileMenu: {
+            siteName: string;
+        };
+
+        friends: {
+            title: string;
+            subtitle: (count: number) => string;
+            initiateLink: string;
+            joinGalaxy: string;
+            applyFunction: string;
+        };
+
+        tags: {
+            title: string;
+            subtitle: string;
+            allTopics: string;
+            found: (count: number) => string;
+            nodeLabel: (count: number) => string;
+        };
+
+        errorBoundary: {
+            message: string;
+            retry: string;
+        };
+
+        guestbook: {
+            title: string;
+            placeholder: string;
+            terminalTitle: string;
+            runButton: string;
+            discussionTitle: string;
+            discussionLabel: string;
+        };
     };
 }
 
@@ -64,7 +123,76 @@ export const SITE_CONFIG: SiteConfig = {
         viewArchive: '进入归档',
         comments: '评论区',
         commentsLabel: 'COMMENTS',
-    }
+
+        // Hero Section
+        hero: {
+            ctaButton: '了解我',
+        },
+
+        // Projects
+        projects: {
+            title: '项目',
+            subtitle: '// 将咖啡转化为代码，将想法转化为现实',
+            viewRepo: 'View Repository',
+            noProjects: '// System Scanning... No projects detected.',
+            scanning: 'Initiating code sequence...',
+        },
+
+        // Footer
+        footer: {
+            rights: 'All Rights Reserved.',
+            builtWith: 'Built with',
+            techStack: 'Astro v5 & Tailwind CSS v4',
+        },
+
+        // 404 Page
+        notFound: {
+            title: '404',
+            subtitle: 'Signal Lost in Space',
+            message:
+                '// The coordinates you provided lead to a black hole.\n// Please check your navigation systems.',
+            button: 'Return to Base',
+        },
+
+        // Mobile Menu
+        mobileMenu: {
+            siteName: 'HICANCAN.TOP',
+        },
+
+        // Friends Page
+        friends: {
+            title: '友链星系',
+            subtitle: (count: number) => `// 收到来自 ${count} 个相邻星系的信号`,
+            initiateLink: 'Initiate Link',
+            joinGalaxy: 'Join the Galaxy',
+            applyFunction: 'apply_for_link()',
+        },
+
+        // Tags Pages
+        tags: {
+            title: '话题矩阵',
+            subtitle: '// 记录学习轨迹与思考路径',
+            allTopics: 'All Topics',
+            found: (count: number) => `Found ${count} article${count > 1 ? 's' : ''}`,
+            nodeLabel: (count: number) => `${count} ${count > 1 ? 'NODES' : 'NODE'}`,
+        },
+
+        // Error Boundary
+        errorBoundary: {
+            message: '// 组件加载失败',
+            retry: '重试',
+        },
+
+        // Guestbook
+        guestbook: {
+            title: 'Guestbook.log',
+            placeholder: '// 写下你的 Commit 信息...',
+            terminalTitle: 'email.tsx — vim',
+            runButton: 'Run > send_mail.sh',
+            discussionTitle: '公开讨论区',
+            discussionLabel: 'PUBLIC THREAD',
+        },
+    },
 };
 
 export const NAV_ITEMS = [

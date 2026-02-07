@@ -6,7 +6,7 @@ tags:
   - Life
 ---
 
-# Welcome to hicancan personal blog, nice to meet you!
+# Welcome to hicancan personal blog, nice to meet you
 
 ## 建立这个博客的缘由十分有趣
 

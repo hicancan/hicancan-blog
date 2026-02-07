@@ -1,15 +1,10 @@
-import React from "react";
+import React from 'react';
 
-interface IconProps extends React.SVGProps<SVGSVGElement> { }
+interface IconProps extends React.SVGProps<SVGSVGElement> {}
 
 export function IconMenu(props: IconProps) {
     return (
-        <svg
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            {...props}
-        >
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
             <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

@@ -1,20 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import { getProjectImage, getFallbackGradient } from '../lib/projectUtils';
+import { getProjectImage, getFallbackGradient } from '../lib/theme';
+import { SITE_CONFIG } from '../config';
 
 const projects = (await getCollection('projects')).sort((a, b) => b.data.priority - a.data.priority);
 ---
 
-<Layout title="项目">
+<Layout title={SITE_CONFIG.ui.projects.title}>
     <div class="max-w-7xl mx-auto px-4 py-12 relative z-10">
         <div class="mb-24 text-center">
             <h1 class="text-6xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-accent animate-gradient bg-300 tracking-tighter">
-                项目
+                {SITE_CONFIG.ui.projects.title}
             </h1>
             <div class="w-16 h-1 bg-accent/50 mx-auto rounded-full mb-6"></div>
             <p class="text-xl text-text-secondary max-w-2xl mx-auto font-light font-mono">
-                // 将咖啡转化为代码，将想法转化为现实
+                {SITE_CONFIG.ui.projects.subtitle}
             </p>
         </div>
 
@@ -96,7 +97,7 @@ const projects = (await getCollection('projects')).sort((a, b) => b.data.priorit
                             <!-- Action Button -->
                             <div class="pt-4">
                                 <a href={project.data.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/50 text-white font-medium hover:gap-5 transition-all duration-300 group/link shadow-lg hover:shadow-accent/10">
-                                    <span>View Repository</span>
+                                    <span>{SITE_CONFIG.ui.projects.viewRepo}</span>
                                     <svg class="w-5 h-5 transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
@@ -109,9 +110,9 @@ const projects = (await getCollection('projects')).sort((a, b) => b.data.priorit
                 <div class="text-center py-32 border border-white/5 rounded-3xl bg-surface/30 backdrop-blur-xl relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
                     <p class="text-2xl text-text-secondary font-mono relative z-10">
-                        // System Scanning... No projects detected.
+                        {SITE_CONFIG.ui.projects.noProjects}
                         <br/>
-                        <span class="text-sm opacity-50 mt-4 block">Initiating code sequence...</span>
+                        <span class="text-sm opacity-50 mt-4 block">{SITE_CONFIG.ui.projects.scanning}</span>
                     </p>
                 </div>
             )}

@@ -1,47 +1,47 @@
 @layer components {
+    /* Typography Overrides for "prose" to match theme */
+    .prose {
+        --tw-prose-body: var(--color-text-secondary);
+        --tw-prose-headings: var(--color-text-primary);
+        --tw-prose-links: var(--color-accent);
+        --tw-prose-bold: var(--color-text-primary);
+        --tw-prose-code: var(--color-accent);
+        --tw-prose-quotes: var(--color-text-secondary);
+        --tw-prose-quote-borders: var(--color-primary);
+    }
 
-  /* Typography Overrides for "prose" to match theme */
-  .prose {
-    --tw-prose-body: var(--color-text-secondary);
-    --tw-prose-headings: var(--color-text-primary);
-    --tw-prose-links: var(--color-accent);
-    --tw-prose-bold: var(--color-text-primary);
-    --tw-prose-code: var(--color-accent);
-    --tw-prose-quotes: var(--color-text-secondary);
-    --tw-prose-quote-borders: var(--color-primary);
-  }
+    .prose h1,
+    .prose h2,
+    .prose h3,
+    .prose h4 {
+        font-family: var(--font-sans);
+        letter-spacing: -0.02em;
+    }
 
-  .prose h1,
-  .prose h2,
-  .prose h3,
-  .prose h4 {
-    font-family: var(--font-sans);
-    letter-spacing: -0.02em;
-  }
+    .prose p {
+        line-height: 1.8;
+    }
 
-  .prose p {
-    line-height: 1.8;
-  }
+    .prose code {
+        background-color: rgba(30, 41, 59, 0.5);
+        padding: 0.2em 0.4em;
+        border-radius: 0.25rem;
+        font-weight: 400;
+        font-family: var(--font-mono);
+        color: var(--color-text-code);
+    }
 
-  .prose code {
-    background-color: rgba(30, 41, 59, 0.5);
-    padding: 0.2em 0.4em;
-    border-radius: 0.25rem;
-    font-weight: 400;
-    font-family: var(--font-mono);
-  }
+    .prose pre {
+        background-color: var(--color-code-bg) !important;
+        /* Github Dark Dimmed-ish */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.75rem;
+    }
 
-  .prose pre {
-    background-color: var(--color-code-bg) !important;
-    /* Github Dark Dimmed-ish */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0.75rem;
-  }
-
-  .prose img {
-    border-radius: 0.75rem;
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
+    .prose img {
+        border-radius: 0.75rem;
+        box-shadow:
+            0 4px 6px -1px rgba(0, 0, 0, 0.1),
+            0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
 }

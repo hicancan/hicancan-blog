@@ -1,11 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import PostCard from "../components/blog/PostCard.astro";
-import HeroGlass from "../components/home/HeroGlass.astro";
-import { getSortedPosts } from "../lib/content";
-import IconViewBox from "../components/icons/IconViewBox.astro";
-import IconArrowRight from "../components/icons/IconArrowRight.astro";
-import { SITE_CONFIG } from "../config";
+import Layout from '../layouts/Layout.astro';
+import PostCard from '../components/blog/PostCard.astro';
+import HeroGlass from '../components/home/HeroGlass.astro';
+import { getSortedPosts } from '../lib/content';
+import IconViewBox from '../components/icons/IconViewBox.astro';
+import IconArrowRight from '../components/icons/IconArrowRight.astro';
+import { SITE_CONFIG } from '../config';
 
 const posts = await getSortedPosts();
 

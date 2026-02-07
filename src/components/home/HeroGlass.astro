@@ -1,6 +1,7 @@
 ---
-import { Image } from "astro:assets";
-import { SITE_CONFIG } from "../../config";
+import { Image } from 'astro:assets';
+import { SITE_CONFIG } from '../../config';
+import IconArrowRight from '../icons/IconArrowRight.astro';
 ---
 
 <div
@@ -13,9 +14,7 @@ import { SITE_CONFIG } from "../../config";
     </div>
 
     <!-- Geometric Decorations -->
-    <div
-        class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-60 transition-opacity"
-    >
+    <div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-60 transition-opacity">
         <div
             class="w-24 h-24 rounded-full border border-white/10 border-dashed animate-[spin_20s_linear_infinite]"
         >
@@ -72,19 +71,8 @@ import { SITE_CONFIG } from "../../config";
             href="/about"
             class="px-6 py-2.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-accent/40 text-text-secondary hover:text-white transition-all flex items-center gap-2 group/btn"
         >
-            <span>了解我</span>
-            <svg
-                class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
+            <span>{SITE_CONFIG.ui.hero.ctaButton}</span>
+            <IconArrowRight class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
         </a>
     </div>
 </div>

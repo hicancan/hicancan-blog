@@ -1,0 +1,11 @@
+# Prettier ignore patterns
+
+# Astro files with complex JSX expressions that prettier-plugin-astro cannot parse
+# These files are valid Astro syntax but exceed the plugin's parsing capabilities
+src/components/blog/PostCard.astro
+src/components/common/NebulaBackground.astro
+src/pages/about.astro
+src/pages/archive.astro
+src/pages/friends.astro
+src/pages/projects.astro
+src/pages/tags/index.astro

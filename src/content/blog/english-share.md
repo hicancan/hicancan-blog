@@ -21,7 +21,7 @@ hicancan的英语阅读笔记
 
 > ![{F45E7698-F509-42BD-B1F9-E1088EF4AB00}](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411051504975.png)  
 > 2023牛津词典年度热词**Rizz**  
->  英国牛津大学出版社12月4日公布，年轻人常用的网络俚语“Rizz”顺利脱颖而出，成为2023的牛津年度词汇。根据牛津大学出版社，“Rizz”含意为有魅力、具有吸引力及可以吸引浪漫及性伴侣。「Rizz」被视为“非凡的个人魅力”（charisma）一词的缩短版本。  
+> 英国牛津大学出版社12月4日公布，年轻人常用的网络俚语“Rizz”顺利脱颖而出，成为2023的牛津年度词汇。根据牛津大学出版社，“Rizz”含意为有魅力、具有吸引力及可以吸引浪漫及性伴侣。「Rizz」被视为“非凡的个人魅力”（charisma）一词的缩短版本。  
 > 例句：  
 > 「Dan might not be conventionally attractive,but he possesses some serious rizz—just look at how he’s charming those two models.」  
 > 「丹可能没有传统意义上的吸引力，但他拥有一些严肃的魅力——看看他是如何吸引那两个模特的。」  
@@ -32,7 +32,7 @@ hicancan的英语阅读笔记
 
 > cha·ris·ma n. /kəˈrɪzmə/  
 > The President has great personal charisma.总统具有超凡的个人魅力。
-> 
+>
 > **Clipping截短法构词：cha·ris·ma$\rightarrow$ris$\rightarrow$rizz**
 
 * * *
@@ -193,7 +193,7 @@ Our most admired colleagues are often the ones who are good at their jobs and ca
 * * *
 
 ## Mind map summary【思维导图总结】
-    
+
 ```mermaid
 graph LRo(Is ‘Rizz’ the Secret to<br> Getting Ahead at Work?) --- o1(Why to be rizz?)
 o1 --- o11(Comparison) 
@@ -257,7 +257,7 @@ linkStyle 22 stroke:#233ed9,stroke-width:3px;
 ```
 
 下面这个版本可能有点拥挤(……)不过看起来更像个思维导图(bushi)
-    
+
 ```mermaid
 mindmap
   root(("Is 'Rizz' the Secret to<br>Getting Ahead at Work?"))

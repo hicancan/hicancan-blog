@@ -25,12 +25,8 @@ const { startDate, class: className } = Astro.props;
                 const diff = now.getTime() - start.getTime();
 
                 const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor(
-                    (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-                );
-                const minutes = Math.floor(
-                    (diff % (1000 * 60 * 60)) / (1000 * 60),
-                );
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
                 this.innerText = `已稳定运行 ${days}天 ${hours}小时 ${minutes}分 ${seconds}秒`;
@@ -47,5 +43,5 @@ const { startDate, class: className } = Astro.props;
         }
     }
 
-    customElements.define("uptime-tracker", UptimeTracker);
+    customElements.define('uptime-tracker', UptimeTracker);
 </script>

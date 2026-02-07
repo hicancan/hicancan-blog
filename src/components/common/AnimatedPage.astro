@@ -15,11 +15,11 @@ const { class: className } = Astro.props;
 </div>
 
 <script>
-    import { initScrollAnimations } from "../../scripts/animations";
+    import { initScrollAnimations } from '../../scripts/animations';
 
     // Initialize on first load
     initScrollAnimations();
 
     // Re-initialize on View Transitions navigation
-    document.addEventListener("astro:page-load", initScrollAnimations);
+    document.addEventListener('astro:page-load', initScrollAnimations);
 </script>

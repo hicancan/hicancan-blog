@@ -1,24 +1,22 @@
-/**
- * Formatting utilities
- */
+import { SITE_CONFIG } from '../config';
 
 /**
- * Format a date to zh-CN locale string
+ * Format a date to locale string
  */
 export function formatDate(date: Date): string {
-    return date.toLocaleDateString('zh-CN', {
+    return date.toLocaleDateString(SITE_CONFIG.locale, {
         year: 'numeric',
         month: 'numeric',
-        day: 'numeric'
+        day: 'numeric',
     });
 }
 
 /**
- * Format a date to short zh-CN locale string (MM/DD)
+ * Format a date to short locale string (MM/DD)
  */
 export function formatDateShort(date: Date): string {
-    return date.toLocaleDateString('zh-CN', {
+    return date.toLocaleDateString(SITE_CONFIG.locale, {
         month: '2-digit',
-        day: '2-digit'
+        day: '2-digit',
     });
 }

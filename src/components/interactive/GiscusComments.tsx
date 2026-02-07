@@ -1,4 +1,3 @@
-import React from 'react';
 import Giscus from '@giscus/react';
 import { ErrorBoundary } from './ErrorBoundary';
 import { SITE_CONFIG } from '../../config';
@@ -11,7 +10,7 @@ interface Props {
  * Giscus comment component wrapped with error boundary
  * for graceful error handling
  */
-export default function GiscusComments({ id = "comments" }: Props) {
+export default function GiscusComments({ id = 'comments' }: Props) {
     return (
         <ErrorBoundary>
             <Giscus

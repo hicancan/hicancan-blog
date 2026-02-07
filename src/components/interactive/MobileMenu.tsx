@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { NAV_ITEMS } from '../../config';
+import { useState, useEffect } from 'react';
+import { NAV_ITEMS, SITE_CONFIG } from '../../config';
 import { useLockBodyScroll } from '../../hooks/useLockBodyScroll';
 import { IconClose } from '../icons/IconClose';
 import { IconMenu } from '../icons/IconMenu';
@@ -55,7 +55,9 @@ export default function MobileMenu({ currentPath = '' }: MobileMenuProps) {
                     <div className="flex flex-col items-center justify-center h-full w-full px-8">
                         <nav className="flex flex-col items-center space-y-6">
                             {NAV_ITEMS.map((item, index) => {
-                                const isActive = currentPath === item.path || (item.path !== '/' && currentPath.startsWith(item.path));
+                                const isActive =
+                                    currentPath === item.path ||
+                                    (item.path !== '/' && currentPath.startsWith(item.path));
                                 return (
                                     <a
                                         key={item.path}
@@ -63,22 +65,23 @@ export default function MobileMenu({ currentPath = '' }: MobileMenuProps) {
                                         onClick={() => setIsOpen(false)}
                                         className={`text-2xl font-bold font-sans tracking-tight transition-colors duration-300 ${isActive ? 'text-accent' : 'text-white/90 hover:text-accent'}`}
                                     >
-                                        <span className={`text-lg mr-3 font-mono ${isActive ? 'text-accent' : 'text-accent/60'}`}>
+                                        <span
+                                            className={`text-lg mr-3 font-mono ${isActive ? 'text-accent' : 'text-accent/60'}`}
+                                        >
                                             0{index + 1}.
                                         </span>
                                         {item.name}
                                     </a>
-                                )
+                                );
                             })}
                         </nav>
-
 
                         {/* Decorative line */}
                         <div className="w-20 h-1 bg-accent/40 rounded-full mt-10" />
 
                         {/* Site name */}
                         <p className="mt-8 text-sm text-white/30 font-mono tracking-widest">
-                            HICANCAN.TOP
+                            {SITE_CONFIG.ui.mobileMenu.siteName}
                         </p>
                     </div>
                 </div>

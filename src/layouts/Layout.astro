@@ -1,45 +1,38 @@
 ---
-import BaseHead from "../components/common/BaseHead.astro";
-import Header from "../components/common/Header.astro";
-import Footer from "../components/common/Footer.astro";
-import { ClientRouter } from "astro:transitions";
-import NebulaBackground from "../components/common/NebulaBackground.astro";
-import { SITE_CONFIG } from "../config";
-import type { NebulaVariant } from "../types";
+import BaseHead from '../components/common/BaseHead.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
+import NebulaBackground from '../components/common/NebulaBackground.astro';
+import { SITE_CONFIG } from '../config';
+import type { NebulaVariant } from '../types';
 
 interface Props {
-	title?: string;
-	description?: string;
-	nebulaVariant?: NebulaVariant;
-	image?: string;
+    title?: string;
+    description?: string;
+    nebulaVariant?: NebulaVariant;
+    image?: string;
 }
 
-const {
-	title = SITE_CONFIG.title,
-	description,
-	nebulaVariant = "default",
-	image,
-} = Astro.props;
+const { title = SITE_CONFIG.title, description, nebulaVariant = 'default', image } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="zh-CN" class="scroll-smooth">
-	<head>
-		<BaseHead title={title} description={description} image={image} />
-		<ClientRouter />
-	</head>
-	<body class="flex flex-col relative">
-		<NebulaBackground variant={nebulaVariant} />
+    <head>
+        <BaseHead title={title} description={description} image={image} />
+        <ClientRouter />
+    </head>
+    <body class="flex flex-col relative">
+        <NebulaBackground variant={nebulaVariant} />
 
-		<Header />
+        <Header />
 
-		<!-- Main Content -->
-		<main
-			class="flex-1 relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
-		>
-			<slot />
-		</main>
+        <!-- Main Content -->
+        <main class="flex-1 relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <slot />
+        </main>
 
-		<Footer />
-	</body>
+        <Footer />
+    </body>
 </html>

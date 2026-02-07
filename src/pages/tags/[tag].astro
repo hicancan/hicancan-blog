@@ -1,7 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import PostCard from "../../components/blog/PostCard.astro";
-import { getUniqueTags, getPostsByTag } from "../../lib/content";
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/blog/PostCard.astro';
+import { getUniqueTags, getPostsByTag } from '../../lib/content';
+import { SITE_CONFIG } from '../../config';
 
 export async function getStaticPaths() {
     const uniqueTags = await getUniqueTags();
@@ -13,19 +14,17 @@ export async function getStaticPaths() {
                 params: { tag },
                 props: { posts },
             };
-        }),
+        })
     );
 }
 
-const tag = decodeURIComponent(Astro.params.tag ?? "");
+const tag = decodeURIComponent(Astro.params.tag ?? '');
 const { posts } = Astro.props;
 ---
 
 <Layout title={`话题: ${tag}`}>
     <div class="max-w-7xl mx-auto px-4 py-12">
-        <div
-            class="mb-12 flex flex-col md:flex-row items-center justify-between gap-6"
-        >
+        <div class="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-center md:text-left">
                 <div
                     class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-mono mb-4"
@@ -40,7 +39,7 @@ const { posts } = Astro.props;
                     {tag}
                 </h1>
                 <p class="text-text-secondary">
-                    Found {posts.length} article{posts.length > 1 ? "s" : ""}
+                    {SITE_CONFIG.ui.tags.found(posts.length)}
                 </p>
             </div>
 
@@ -49,7 +48,7 @@ const { posts } = Astro.props;
                 class="px-6 py-3 rounded-xl border border-white/10 hover:bg-white/5 hover:border-accent/50 transition-all flex items-center gap-2 group"
             >
                 <span class="text-sm text-text-secondary group-hover:text-white"
-                    >All Topics</span
+                    >{SITE_CONFIG.ui.tags.allTopics}</span
                 >
                 <svg
                     width="16"
