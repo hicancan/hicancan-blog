@@ -32,6 +32,7 @@
     --animate-gradient: gradient 6s ease infinite;
 
     @keyframes gradient {
+
         0%,
         100% {
             background-position: 0% 50%;
@@ -127,5 +128,6 @@
 }
 
 @theme {
-    --z-overlay: 100;
+    --z-overlay: 50;
+    --z-header: 50;
 }
