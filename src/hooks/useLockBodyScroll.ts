@@ -12,6 +12,8 @@ export function useLockBodyScroll(isLocked: boolean) {
             // Save original overflow style if not already saved
             if (originalOverflow.current === null) {
                 originalOverflow.current = document.body.style.overflow || '';
+                const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+                document.body.style.paddingRight = `${scrollBarWidth}px`;
             }
             // Lock scroll
             document.body.style.overflow = 'hidden';
@@ -19,9 +21,11 @@ export function useLockBodyScroll(isLocked: boolean) {
             // Restore original overflow style
             if (originalOverflow.current !== null) {
                 document.body.style.overflow = originalOverflow.current;
+                document.body.style.paddingRight = '';
                 originalOverflow.current = null; // Reset ensures we re-capture if body style changes externally (though unlikely)
             } else {
                 document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
             }
         }
 
@@ -29,8 +33,10 @@ export function useLockBodyScroll(isLocked: boolean) {
         return () => {
             if (originalOverflow.current !== null) {
                 document.body.style.overflow = originalOverflow.current;
+                document.body.style.paddingRight = '';
             } else {
                 document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
             }
         };
     }, [isLocked]);

@@ -202,3 +202,5 @@ export const NAV_ITEMS = [
     { name: '留言', path: '/guestbook' },
     { name: '关于', path: '/about' },
 ];
+
+export const THEME_COLOR = '#0f172a';

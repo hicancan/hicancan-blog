@@ -23,7 +23,7 @@
     }
 
     .prose code {
-        background-color: rgba(30, 41, 59, 0.5);
+        background-color: color-mix(in srgb, var(--color-surface), transparent 50%);
         padding: 0.2em 0.4em;
         border-radius: 0.25rem;
         font-weight: 400;

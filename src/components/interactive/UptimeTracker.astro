@@ -43,5 +43,7 @@ const { startDate, class: className } = Astro.props;
         }
     }
 
-    customElements.define('uptime-tracker', UptimeTracker);
+    if (!customElements.get('uptime-tracker')) {
+        customElements.define('uptime-tracker', UptimeTracker);
+    }
 </script>

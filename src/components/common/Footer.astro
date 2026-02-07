@@ -4,7 +4,7 @@ import { SITE_CONFIG } from '../../config';
 import UptimeTracker from '../interactive/UptimeTracker.astro';
 import IconBilibili from '../icons/IconBilibili.astro';
 import IconGithub from '../icons/IconGithub.astro';
-import IconEmail from '../icons/IconEmail.astro';
+import IconMail from '../icons/IconMail.astro';
 ---
 
 <footer class="border-t border-white/5 bg-main/30 mt-20 backdrop-blur-sm">
@@ -43,7 +43,7 @@ import IconEmail from '../icons/IconEmail.astro';
                     href={SITE_CONFIG.social.bilibili}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-text-secondary hover:text-[#fb7299] transition-colors"
+                    class="text-text-secondary hover:text-bilibili transition-colors"
                     aria-label="Bilibili"
                 >
                     <IconBilibili class="h-6 w-6" />
@@ -67,7 +67,7 @@ import IconEmail from '../icons/IconEmail.astro';
                     class="text-text-secondary hover:text-primary transition-colors"
                     aria-label="Email"
                 >
-                    <IconEmail class="h-6 w-6" />
+                    <IconMail class="h-6 w-6" />
                 </a>
             </div>
         </div>

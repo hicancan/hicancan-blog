@@ -12,6 +12,9 @@
     --color-accent: #22d3ee;
     --color-code-bg: #0d1117;
 
+    /* Brand Colors */
+    --color-bilibili: #fb7299;
+
     /* Text Colors */
     --color-text-primary: #f8fafc;
     --color-text-secondary: #94a3b8;
@@ -111,10 +114,6 @@
 }
 
 /* Custom utilities to replace arbitrary values (Prettier compatibility) */
-@utility opacity-15 {
-    opacity: 0.15;
-}
-
 @utility scale-102 {
     transform: scale(1.02);
 }
