@@ -16,7 +16,7 @@ const otherPosts = posts.length > 1 ? posts.slice(1, 4) : [];
 
 <Layout title="首页" nebulaVariant="default">
     <div
-        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(200px,auto)] relative z-10 max-w-7xl mx-auto px-4 py-8"
+        class="relative z-10 mx-auto grid max-w-7xl auto-rows-[minmax(200px,auto)] grid-cols-1 gap-6 px-4 py-8 md:grid-cols-3 lg:grid-cols-4"
     >
         <!-- Hero Section: Crystal Flagship (Span 2x2) -->
         <HeroGlass />
@@ -24,7 +24,7 @@ const otherPosts = posts.length > 1 ? posts.slice(1, 4) : [];
         <!-- Latest Post (Span 2x2 if big enough, or 2x1) -->
         {
             latestPost && (
-                <div class="md:col-span-2 md:row-span-2 h-full">
+                <div class="h-full md:col-span-2 md:row-span-2">
                     <PostCard post={latestPost} loading="eager" />
                 </div>
             )
@@ -33,7 +33,7 @@ const otherPosts = posts.length > 1 ? posts.slice(1, 4) : [];
         <!-- Other Posts -->
         {
             otherPosts.map((post) => (
-                <div class="md:col-span-1 md:row-span-1 h-64">
+                <div class="h-64 md:col-span-1 md:row-span-1">
                     <PostCard post={post} />
                 </div>
             ))
@@ -42,27 +42,27 @@ const otherPosts = posts.length > 1 ? posts.slice(1, 4) : [];
         <!-- 'View All' Link Block (Holographic Button) -->
         <a
             href="/archive"
-            class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-3xl bg-surface/30 border border-white/5 hover:border-accent/50 transition-all flex flex-col items-center justify-center p-6"
+            class="group bg-surface/30 hover:border-accent/50 relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/5 p-6 transition-all md:col-span-1 md:row-span-1"
         >
             <div
-                class="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                class="from-accent/10 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             >
             </div>
 
             <div
-                class="relative z-10 w-12 h-12 mb-4 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-white/10 group-hover:border-accent/30"
+                class="group-hover:border-accent/30 relative z-10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-transform duration-300 group-hover:scale-110"
             >
                 <IconViewBox
-                    class="w-6 h-6 text-text-secondary group-hover:text-accent transition-colors"
+                    class="text-text-secondary group-hover:text-accent h-6 w-6 transition-colors"
                 />
             </div>
 
             <span
-                class="text-text-secondary group-hover:text-white font-medium flex items-center gap-2 relative z-10"
+                class="text-text-secondary relative z-10 flex items-center gap-2 font-medium group-hover:text-white"
             >
                 {SITE_CONFIG.ui.viewArchive}
                 <IconArrowRight
-                    class="w-4 h-4 transition-transform group-hover:translate-x-1 text-accent"
+                    class="text-accent h-4 w-4 transition-transform group-hover:translate-x-1"
                 />
             </span>
         </a>

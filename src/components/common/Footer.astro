@@ -7,16 +7,16 @@ import IconGithub from '../icons/IconGithub.astro';
 import IconMail from '../icons/IconMail.astro';
 ---
 
-<footer class="border-t border-white/5 bg-main/30 mt-20 backdrop-blur-sm">
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<footer class="bg-main/30 mt-20 border-t border-white/5 backdrop-blur-sm">
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
             <!-- Brand & Copyright -->
             <div class="text-center md:text-left">
-                <p class="text-sm text-text-secondary">
+                <p class="text-text-secondary text-sm">
                     &copy; {today.getFullYear()}
                     {SITE_CONFIG.author}. {SITE_CONFIG.ui.footer.rights}
                 </p>
-                <p class="text-xs text-text-secondary/60 mt-1">
+                <p class="text-text-secondary/60 mt-1 text-xs">
                     {SITE_CONFIG.ui.footer.builtWith}
                     <a
                         href="https://astro.build"
@@ -32,7 +32,7 @@ import IconMail from '../icons/IconMail.astro';
                 </p>
                 <UptimeTracker
                     startDate={SITE_CONFIG.startDate.toISOString()}
-                    class="block text-xs text-text-secondary/40 mt-1 font-mono tabular-nums"
+                    class="text-text-secondary/40 mt-1 block font-mono text-xs tabular-nums"
                 />
             </div>
 
@@ -54,7 +54,7 @@ import IconMail from '../icons/IconMail.astro';
                     href={SITE_CONFIG.social.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-text-secondary hover:text-white transition-colors"
+                    class="text-text-secondary transition-colors hover:text-white"
                     aria-label="GitHub"
                 >
                     <span class="sr-only">GitHub</span>

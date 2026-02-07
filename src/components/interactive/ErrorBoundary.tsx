@@ -31,11 +31,11 @@ export class ErrorBoundary extends Component<Props, State> {
         if (this.state.hasError) {
             return (
                 this.props.fallback || (
-                    <div className="text-center py-8 text-text-secondary">
+                    <div className="text-text-secondary py-8 text-center">
                         <p className="font-mono text-sm">// 组件加载失败</p>
                         <button
                             onClick={() => this.setState({ hasError: false })}
-                            className="mt-4 px-4 py-2 text-xs border border-white/10 rounded-lg hover:bg-white/5 transition-colors"
+                            className="mt-4 rounded-lg border border-white/10 px-4 py-2 text-xs transition-colors hover:bg-white/5"
                         >
                             重试
                         </button>
