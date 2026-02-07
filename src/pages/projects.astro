@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { getProjectImage, getFallbackGradient } from '../lib/theme';
 import { SITE_CONFIG } from '../config';
+import IconChevronRight from '../components/icons/IconChevronRight.astro';
 
 const projects = (await getCollection('projects')).sort((a, b) => b.data.priority - a.data.priority);
 ---
@@ -98,9 +99,7 @@ const projects = (await getCollection('projects')).sort((a, b) => b.data.priorit
                             <div class="pt-4">
                                 <a href={project.data.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/50 text-white font-medium hover:gap-5 transition-all duration-300 group/link shadow-lg hover:shadow-accent/10">
                                     <span>{SITE_CONFIG.ui.projects.viewRepo}</span>
-                                    <svg class="w-5 h-5 transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
+                                    <IconChevronRight class="w-5 h-5 transition-transform group-hover/link:translate-x-1" />
                                 </a>
                             </div>
                         </div>

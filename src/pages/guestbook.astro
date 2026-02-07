@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { SITE_CONFIG } from '../config';
 import GiscusComments from '../components/interactive/GiscusComments';
+import IconMail from '../components/icons/IconMail.astro';
 ---
 
 <Layout title="留言板" nebulaVariant="guestbook">
@@ -118,18 +119,7 @@ import GiscusComments from '../components/interactive/GiscusComments';
                         href={`mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('来自博客的留言')}`}
                         class="inline-flex items-center gap-2 bg-primary/20 hover:bg-primary/40 text-primary hover:text-white border border-primary/30 px-6 py-2.5 rounded-lg transition-all font-sans font-medium group/btn shadow-[0_0_20px_-5px_rgba(var(--color-primary),0.3)] hover:shadow-[0_0_30px_-5px_rgba(var(--color-primary),0.5)]"
                     >
-                        <svg
-                            class="w-4 h-4 group-hover/btn:rotate-12 transition-transform"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            ><path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                            ></path></svg
-                        >
+                        <IconMail class="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
                         {SITE_CONFIG.ui.guestbook.runButton}
                     </a>
                 </div>

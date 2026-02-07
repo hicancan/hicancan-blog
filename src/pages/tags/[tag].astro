@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import PostCard from '../../components/blog/PostCard.astro';
 import { getUniqueTags, getPostsByTag } from '../../lib/content';
 import { SITE_CONFIG } from '../../config';
+import IconArrowRight from '../../components/icons/IconArrowRight.astro';
 
 export async function getStaticPaths() {
     const uniqueTags = await getUniqueTags();
@@ -50,18 +51,9 @@ const { posts } = Astro.props;
                 <span class="text-sm text-text-secondary group-hover:text-white"
                     >{SITE_CONFIG.ui.tags.allTopics}</span
                 >
-                <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    class="stroke-current text-text-secondary group-hover:text-accent group-hover:translate-x-1 transition-all"
-                    ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg
-                >
+                <IconArrowRight
+                    class="w-4 h-4 stroke-current text-text-secondary group-hover:text-accent group-hover:translate-x-1 transition-all"
+                />
             </a>
         </div>
 
