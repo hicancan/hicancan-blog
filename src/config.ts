@@ -33,6 +33,20 @@ interface SiteConfig {
         comments: string;
         commentsLabel: string;
 
+        // New Sections
+        blog: {
+            published: string;
+            updated: string;
+        };
+
+        about: {
+            greeting: string;
+            school: string;
+            role1: string;
+            role2: string;
+            status: string;
+        };
+
         hero: {
             ctaButton: string;
         };
@@ -123,6 +137,19 @@ export const SITE_CONFIG: SiteConfig = {
         viewArchive: '进入归档',
         comments: '评论区',
         commentsLabel: 'COMMENTS',
+
+        blog: {
+            published: '发布于',
+            updated: '更新于',
+        },
+
+        about: {
+            greeting: '你好，我是',
+            school: 'NJUPT',
+            role1: '算法爱好者',
+            role2: '关注 AI 与 量子计算',
+            status: '// 学生 · coder · 持续折腾',
+        },
 
         // Hero Section
         hero: {

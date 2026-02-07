@@ -51,7 +51,7 @@ const { skills, timeline } = authorFn.data;
             <div class="text-center md:text-left space-y-6">
                 <div>
                     <h1 class="text-5xl md:text-6xl font-black mb-2 tracking-tight">
-                        你好，我是 
+                        {SITE_CONFIG.ui.about.greeting} 
                         <span class="relative">
                             <span class="absolute -inset-1 bg-gradient-to-r from-primary to-accent blur opacity-30 group-hover:opacity-60 transition-opacity"></span>
                             <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent capitalize">{SITE_CONFIG.author}</span>
@@ -61,8 +61,8 @@ const { skills, timeline } = authorFn.data;
                 </div>
 
                 <p class="text-xl text-text-secondary font-light leading-relaxed max-w-2xl">
-                    <span class="text-primary/80 font-mono text-sm border border-primary/20 px-2 py-0.5 rounded ml-1">NJUPT</span> · 算法爱好者 · 关注 AI 与 量子计算<br/>
-                    <span class="text-base opacity-60 mt-2 block font-mono">// 学生 · coder · 持续折腾</span>
+                    <span class="text-primary/80 font-mono text-sm border border-primary/20 px-2 py-0.5 rounded ml-1">{SITE_CONFIG.ui.about.school}</span> · {SITE_CONFIG.ui.about.role1} · {SITE_CONFIG.ui.about.role2}<br/>
+                    <span class="text-base opacity-60 mt-2 block font-mono">{SITE_CONFIG.ui.about.status}</span>
                 </p>
 
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">

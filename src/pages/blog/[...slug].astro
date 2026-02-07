@@ -32,7 +32,9 @@ const { Content } = await render(post);
                 </time>
                 {
                     post.data.updatedDate && (
-                        <span class="italic">(Updated: {formatDate(post.data.updatedDate)})</span>
+                        <span class="italic">
+                            ({SITE_CONFIG.ui.blog.updated} {formatDate(post.data.updatedDate)})
+                        </span>
                     )
                 }
             </div>
