@@ -28,13 +28,8 @@ function headerMap(edgeone, source) {
 assert(existsSync(distPath), 'dist directory must exist; run npm run build before npm run test');
 
 const edgeone = JSON.parse(readDist('edgeone.json'));
-assert(Array.isArray(edgeone.redirects), 'edgeone.json must declare redirects');
 assert(Array.isArray(edgeone.headers), 'edgeone.json must declare headers');
-
-const wwwRedirect = edgeone.redirects.find(
-    (item) => item.source === '$host' && item.destination === '$wwwhost' && item.statusCode === 301,
-);
-assert(wwwRedirect, 'edgeone.json must keep apex-to-www 301 redirect');
+assert(!Object.hasOwn(edgeone, 'redirects'), 'edgeone.json must not declare redirects; apex redirect is owned by Cloudflare');
 
 const baseHeaders = headerMap(edgeone, '/*');
 assert(baseHeaders['X-Content-Type-Options'] === 'nosniff', 'Missing nosniff security header');
