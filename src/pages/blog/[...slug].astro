@@ -53,7 +53,8 @@ const { Content } = await render(post);
         </div>
     </article>
 
-    <!-- Comments Section -->
+    <!-- Comments Section（审核期间隐藏，通过后恢复） -->
+    {SITE_CONFIG.giscus.enabled && (
     <section class="mx-auto max-w-3xl px-4 pb-20">
         <div
             class="bg-surface/20 relative rounded-3xl border border-white/5 p-6 backdrop-blur-2xl md:p-8"
@@ -68,4 +69,5 @@ const { Content } = await render(post);
             <GiscusComments client:only="react" />
         </div>
     </section>
+    )}
 </Layout>

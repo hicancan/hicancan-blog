@@ -5,6 +5,7 @@ export interface GiscusConfig {
     repoId: string;
     category: string;
     categoryId: string;
+    enabled: boolean;
 }
 
 export interface SiteHeroConfig {
