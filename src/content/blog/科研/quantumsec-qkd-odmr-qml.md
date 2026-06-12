@@ -1,12 +1,13 @@
 ---
-title: '当信息安全遇见量子测量：基于 Purohit & Vyas (2025) 综述的 QML-IDS 复现探索'
-description: '复现 Frontiers in Quantum Science and Technology 综述，探讨 QML 在 QKD 窃听检测中的真伪赋能，揭示物理信噪比对 AI 效力的边界约束。'
+title: 当信息安全遇见量子测量：基于 Purohit & Vyas (2025) 综述的 QML-IDS 复现探索
+description: 复现 Frontiers in Quantum Science and Technology 综述，探讨 QML 在 QKD 窃听检测中的真伪赋能，揭示物理信噪比对 AI 效力的边界约束。
 pubDate: 2026-02-07
 tags:
   - Quantum Security
   - Machine Learning
   - Reproduction
   - Research
+aliases:
 ---
 
 # 当信息安全遇见量子测量：基于 Purohit & Vyas (2025) 综述的 QML-IDS 复现探索
@@ -21,7 +22,7 @@ tags:
 **利用量子机器学习 (QML) 增强量子密钥分发 (QKD) 的后处理能力，特别是针对窃听检测 (Eavesdropping Detection) 和安全分析。**
 
 正如综述 Table 1 所示，**QML-IDS (量子机器学习入侵检测系统)** 正成为解决复杂信道噪声与攻击混淆问题的关键技术。
-受此启发，本项目设计了一组对照实验，试图从“信息安全”与“量子测量”这两个维度的协作中，回答一个核心问题：
+受此启发，本文设计了一组对照实验，试图从“信息安全”与“量子测量”这两个维度的协作中，回答一个核心问题：
 **AI 到底在量子安全里赋能了什么？是锦上添花，还是雪中送炭？**
 
 ---
@@ -75,7 +76,7 @@ $$ H_2(p) = -p\log_2 p -(1-p)\log_2(1-p) $$
 
 1. **Level 1: 物理阈值法**（基线）
 2. **Level 2: 经典 AI (SVM-RBF)**
-3. **Level 3: 量子 AI (QSVM)**（本项目核心）
+3. **Level 3: 量子 AI (QSVM)**（本文核心）
 
 ### 3.1 QSVM 的量子赋能逻辑
 

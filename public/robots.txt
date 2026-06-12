@@ -2,4 +2,4 @@ User-agent: *
 Disallow:
 
 # Sitemap
-Sitemap: https://hicancan.top/sitemap-index.xml
+Sitemap: https://www.hicancan.top/sitemap-index.xml

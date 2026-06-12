@@ -128,7 +128,7 @@ See `.github/workflows/deploy.yml` for the CI/CD configuration.
 - **⚡️ 极致性能**: 基于 Astro 构建，默认零 JavaScript (群岛架构)，秒开体验。
 - **🎨 现代美学**: 磨砂玻璃设计风格，动态星云背景，以及细腻的微交互动画。
 - **🔄 视图过渡**: 使用 Astro Client Router 提供原生应用般的丝滑导航体验。
-- **🛠️ 类型安全**: 使用 Zod Schema 对博客、项目和友链数据进行严格的类型检查。
+- **🛠️ 类型安全**: 使用 Zod Schema 对博客、作品和友链数据进行严格的类型检查。
 - **📱 全端响应**: 完美适配各种设备，包含精心设计的移动端菜单。
 - **🔌 丰富集成**:
   - **React 19**: 用于处理复杂的交互组件（如评论区、移动端菜单）。
@@ -169,7 +169,7 @@ See `.github/workflows/deploy.yml` for the CI/CD configuration.
 
 ## ⚙️ 配置指南
 
-本项目旨在让您能够轻松进行自定义配置。
+本站旨在让您能够轻松进行自定义配置。
 
 ### 1. 站点元数据
 修改 `src/config.ts` 文件以配置您的站点信息：
@@ -190,14 +190,14 @@ export const SITE_CONFIG: SiteConfig = {
 
 ### 2. 内容管理
 - **文章**: 在 `src/content/blog/` 目录下添加 `.md` 或 `.mdx` 文件。
-- **项目**: 在 `src/content/projects/` 目录下添加 `.json` 文件。
+- **作品**: 在 `src/content/projects/` 目录下添加 `.json` 文件。
 - **友链**: 在 `src/content/friends/` 目录下添加 `.json` 文件。
 
 ### 3. 部署
-本项目已针对 **GitHub Pages** (通过 GitHub Actions) 或 **Cloudflare Pages** 进行了优化。
+本站已针对 **GitHub Pages** (通过 GitHub Actions) 和 **EdgeOne Pages** 进行了优化。
 查看 `.github/workflows/deploy.yml` 获取 CI/CD 配置详情。
 
-## 📂 项目结构
+## 📂 站点结构
 
 ```text
 ├── src/

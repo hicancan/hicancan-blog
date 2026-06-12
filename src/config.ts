@@ -112,7 +112,7 @@ export const SITE_CONFIG: SiteConfig = {
     title: 'hicancan',
     author: 'hicancan',
     description: 'Welcome to my digital garden.',
-    url: 'https://hicancan.top',
+    url: 'https://www.hicancan.top',
     locale: 'zh-CN',
     email: 'mail@hicancan.top',
     avatar: avatarImage,
@@ -156,13 +156,13 @@ export const SITE_CONFIG: SiteConfig = {
             ctaButton: '了解我',
         },
 
-        // Projects
+        // Works
         projects: {
-            title: '项目',
-            subtitle: '// 将咖啡转化为代码，将想法转化为现实',
+            title: '作品',
+            subtitle: '// 将咖啡转化为代码，将想法转化为可用的工具',
             viewRepo: 'View Repository',
-            noProjects: '// System Scanning... No projects detected.',
-            scanning: 'Initiating code sequence...',
+            noProjects: '// System Scanning... No works detected.',
+            scanning: 'Initiating build sequence...',
         },
 
         // Footer
@@ -224,7 +224,7 @@ export const SITE_CONFIG: SiteConfig = {
 
 export const NAV_ITEMS = [
     { name: '话题', path: '/tags' },
-    { name: '项目', path: '/projects' },
+    { name: '作品', path: '/projects' },
     { name: '友链', path: '/friends' },
     { name: '留言', path: '/guestbook' },
     { name: '关于', path: '/about' },

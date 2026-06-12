@@ -23,3 +23,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# editor metadata
+src/content/blog/.obsidian/
+
+# local content scratch files
+src/content/blog/**/*.local

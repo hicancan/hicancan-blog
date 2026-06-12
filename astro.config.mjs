@@ -11,7 +11,7 @@ import rehypeKatex from 'rehype-katex';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://hicancan.top',
+  site: 'https://www.hicancan.top',
   vite: {
     plugins: [tailwindcss()]
   },
