@@ -33,8 +33,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Lint Astro project
+        run: npm run lint
+
+      - name: Type check
+        run: npm run type-check
+
       - name: Build site
         run: npm run build
+
+      - name: Validate built site
+        run: npm run test
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5
@@ -78,8 +87,9 @@ jobs:
         env:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
           EDGEONE_PROJECT_NAME: ${{ vars.EDGEONE_PROJECT_NAME }}
-          EDGEONE_PAGES_AREA: ${{ vars.EDGEONE_PAGES_AREA }}
+          EDGEONE_PAGES_AREA: ${{ vars.EDGEONE_PAGES_AREA || 'global' }}
         run: |
+          set -o pipefail
           if [ -z "${EDGEONE_API_TOKEN}" ]; then
             echo "::error::EDGEONE_API_TOKEN secret is required"
             exit 1
@@ -88,7 +98,7 @@ jobs:
             echo "::error::EDGEONE_PROJECT_NAME variable is required"
             exit 1
           fi
-          area="${EDGEONE_PAGES_AREA:-overseas}"
+          area="${EDGEONE_PAGES_AREA:-global}"
           echo "Deploying dist to EdgeOne Pages project '${EDGEONE_PROJECT_NAME}' in area '${area}'."
           npx --yes edgeone@latest pages deploy dist \
             -n "${EDGEONE_PROJECT_NAME}" \
