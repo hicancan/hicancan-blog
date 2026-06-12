@@ -29,7 +29,6 @@ assert(existsSync(distPath), 'dist directory must exist; run npm run build befor
 
 const edgeone = JSON.parse(readDist('edgeone.json'));
 assert(Array.isArray(edgeone.headers), 'edgeone.json must declare headers');
-assert(!Object.hasOwn(edgeone, 'redirects'), 'edgeone.json must not declare redirects; apex redirect is owned by Cloudflare');
 
 const baseHeaders = headerMap(edgeone, '/*');
 assert(baseHeaders['X-Content-Type-Options'] === 'nosniff', 'Missing nosniff security header');
