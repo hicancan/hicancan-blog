@@ -30,26 +30,6 @@ import IconMail from '../icons/IconMail.astro';
                         class="hover:text-accent transition-colors">Tailwind CSS v4</a
                     >.
                 </p>
-                <p class="text-text-secondary/60 mt-1 text-xs">
-                    <a
-                        href="https://beian.miit.gov.cn/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="hover:text-accent transition-colors"
-                    >
-                        苏ICP备2026038426号-1
-                    </a>
-                </p>
-                <p class="text-text-secondary/60 mt-1 text-xs">
-                    <a
-                        href="https://beian.mps.gov.cn/#/query/webSearch?code=32011302323214"
-                        target="_blank"
-                        rel="noreferrer"
-                        class="hover:text-accent transition-colors"
-                    >
-                        苏公网安备32011302323214号
-                    </a>
-                </p>
                 <UptimeTracker
                     startDate={SITE_CONFIG.startDate.toISOString()}
                     class="text-text-secondary/40 mt-1 block font-mono text-xs tabular-nums"
@@ -90,6 +70,27 @@ import IconMail from '../icons/IconMail.astro';
                     <IconMail class="h-6 w-6" />
                 </a>
             </div>
+        </div>
+
+        <!-- 备案号行：独立居中 -->
+        <div class="mt-6 flex justify-center gap-4 text-xs text-text-secondary/50">
+            <a
+                href="https://beian.miit.gov.cn/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-accent transition-colors"
+            >
+                苏ICP备2026038426号-1
+            </a>
+            <span class="select-none">|</span>
+            <a
+                href="https://beian.mps.gov.cn/#/query/webSearch?code=32011302323214"
+                target="_blank"
+                rel="noreferrer"
+                class="hover:text-accent transition-colors"
+            >
+                苏公网安备32011302323214号
+            </a>
         </div>
     </div>
 </footer>
