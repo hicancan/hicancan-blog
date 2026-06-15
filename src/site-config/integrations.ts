@@ -5,7 +5,7 @@ export const GISCUS_CONFIG: GiscusConfig = {
     repoId: 'R_kgDORIqQNg',
     category: 'Announcements',
     categoryId: 'DIC_kwDORIqQNs4C140p',
-    enabled: false, // 公安备案审核期间禁用，通过后改为 true
+    enabled: true
 };
 
 export const SOCIAL_LINKS: SocialLinks = {

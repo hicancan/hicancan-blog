@@ -60,10 +60,10 @@ export const UI_TEXT: UiTextConfig = {
     },
     guestbook: {
         title: 'Guestbook.log',
-        placeholder: '// 发送邮件至 hicancan...',
+        placeholder: '// 写下你的 Commit 信息...',
         terminalTitle: 'email.tsx — vim',
         runButton: 'Run > send_mail.sh',
-        discussionTitle: '联系方式',
-        discussionLabel: 'CONTACT',
+        discussionTitle: '公开讨论区',
+        discussionLabel: 'PUBLIC THREAD',
     },
 };
