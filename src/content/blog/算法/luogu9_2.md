@@ -86,7 +86,7 @@ int main() {
 
 #### 测试点结果
 
-![202411152324940.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411152324940.png)  
+![202411152324940.png](../../media/9644ee24b7e2f346c0b6db14.png)  
 发现测试结果后四题都TLE了，这是为什么呢？
 
 #### 算法分析
@@ -144,7 +144,7 @@ int main() {
 
 #### 测试点结果
 
-![202411161628194.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411161628194.png)  
+![202411161628194.png](../../media/e20d19432e6c9a0b4ec9ecaa.png)  
 当然，因为渐进时间复杂度还是$O(n^2)$，所以还是TLE了。
 
 ### 思路二：冒泡排序(Bubble Sort)
@@ -186,7 +186,7 @@ int main(){
 #### 测试点结果
 
 可以预料的是，冒泡排序的时间复杂度也是$O(n^2)$，在同阶数的情况下，甚至于还比选择排序慢所以这里也是TLE。  
-![202411152359162.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411152359162.png)
+![202411152359162.png](../../media/8949c0e40fb39166c31987d4.png)
 
 #### 算法分析
 
@@ -229,7 +229,7 @@ int main(){
 }
 ```
 
-![202411161304745.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411161304745.png)  
+![202411161304745.png](../../media/02447451bca34233743069ab.png)  
 明显优化了不少但是还是两个TLE
 
 #### 算法分析
@@ -282,7 +282,7 @@ int main() {
 
 #### 测试点结果
 
-![202411161704681.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411161704681.png)
+![202411161704681.png](../../media/15c2a42a39b718c63b67ad0e.png)
 
 #### 算法分析
 
@@ -299,7 +299,7 @@ int main() {
 
 #### 动画演示
 
-![202411161518209.gif](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411161518209.gif)
+![202411161518209.gif](../../media/8fc57ad95b33585a6673fa4b.gif)
 
 #### 代码实现与详细注释
 
@@ -340,7 +340,7 @@ int main(){
 
 #### 测试点结果
 
-![202411160034498.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411160034498.png)  
+![202411160034498.png](../../media/87d779925ff691afd6cc4810.png)  
 居然只有一个TLE，这是为什么呢？
 
 #### 算法分析
@@ -397,7 +397,7 @@ int main(){
 
 #### 测试点结果
 
-![202411161555961.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411161555961.png)  
+![202411161555961.png](../../media/1b92338a8d508fd821ad45a8.png)  
 和预计的一样，通过了所有测试点。
 
 #### 算法分析

@@ -1,0 +1,24 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PostRow from '../../components/PostRow.astro';
+import { getPosts } from '../../lib/content';
+
+const posts = await getPosts();
+const years = [...new Set(posts.map((post) => post.data.pubDate.getFullYear()))];
+---
+
+<SiteLayout title="文章" description="hicancan 写过的文章。">
+  <div class="container">
+    <header class="page-intro">
+      <p class="eyebrow">Writing</p>
+      <h1 class="page-title">文章</h1>
+      <p class="page-subtitle">写过的题解、研究笔记，以及一些别的记录。</p>
+    </header>
+    {years.map((year) => (
+      <section aria-label={String(year)}>
+        <h2 class="year-heading">{year}</h2>
+        <ul class="post-list">{posts.filter((post) => post.data.pubDate.getFullYear() === year).map((post) => <PostRow post={post} />)}</ul>
+      </section>
+    ))}
+  </div>
+</SiteLayout>

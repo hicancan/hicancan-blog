@@ -1,70 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PostCard from '../components/blog/PostCard.astro';
-import HeroGlass from '../components/home/HeroGlass.astro';
-import { getSortedPosts } from '../lib/content';
-import IconViewBox from '../components/icons/IconViewBox.astro';
-import IconArrowRight from '../components/icons/IconArrowRight.astro';
-import { SITE_CONFIG } from '../config';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PostRow from '../components/PostRow.astro';
+import ProjectRow from '../components/ProjectRow.astro';
+import { getPosts } from '../lib/content';
+import avatar from '../assets/avatar.jpg';
 
-const posts = await getSortedPosts();
-
-// Fortress-Level: Safe Array Access
-const latestPost = posts.length > 0 ? posts[0] : null;
-const otherPosts = posts.length > 1 ? posts.slice(1, 4) : [];
+const posts = (await getPosts()).slice(0, 4);
+const projects = (await getCollection('projects'))
+  .sort((a, b) => (b.data.priority ?? 0) - (a.data.priority ?? 0))
+  .slice(0, 2);
 ---
 
-<Layout title="首页" nebulaVariant="default">
-    <div
-        class="relative z-10 mx-auto grid max-w-7xl auto-rows-[minmax(200px,auto)] grid-cols-1 gap-6 px-4 py-8 md:grid-cols-3 lg:grid-cols-4"
-    >
-        <!-- Hero Section: Crystal Flagship (Span 2x2) -->
-        <HeroGlass />
+<SiteLayout>
+  <div class="container">
+    <section class="home-hero" aria-labelledby="intro-title">
+      <div>
+        <p class="eyebrow">南京邮电大学 · 学生 / 开发者</p>
+        <h1 id="intro-title" class="hero-name">你好，我是<br /><span>hicancan.</span></h1>
+        <p class="hero-copy">写代码，也记录做题、研究和阅读时遇到的问题。这里放着我的文章和做过的项目。</p>
+        <div class="hero-links">
+          <a class="text-link" href="/articles/">读文章 <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="/about/">关于我 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <Image src={avatar} width={190} height={190} class="hero-portrait" alt="hicancan 的头像" loading="eager" />
+    </section>
 
-        <!-- Latest Post (Span 2x2 if big enough, or 2x1) -->
-        {
-            latestPost && (
-                <div class="h-full md:col-span-2 md:row-span-2">
-                    <PostCard post={latestPost} loading="eager" />
-                </div>
-            )
-        }
+    <section class="section-block" aria-labelledby="recent-title">
+      <div class="section-heading"><h2 id="recent-title">最近写的</h2><a href="/articles/">全部文章 ↗</a></div>
+      <ul class="post-list">{posts.map((post) => <PostRow post={post} />)}</ul>
+    </section>
 
-        <!-- Other Posts -->
-        {
-            otherPosts.map((post) => (
-                <div class="h-64 md:col-span-1 md:row-span-1">
-                    <PostCard post={post} />
-                </div>
-            ))
-        }
-
-        <!-- 'View All' Link Block (Holographic Button) -->
-        <a
-            href="/archive"
-            class="group bg-surface/30 hover:border-accent/50 relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/5 p-6 transition-all md:col-span-1 md:row-span-1"
-        >
-            <div
-                class="from-accent/10 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-            >
-            </div>
-
-            <div
-                class="group-hover:border-accent/30 relative z-10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-transform duration-300 group-hover:scale-110"
-            >
-                <IconViewBox
-                    class="text-text-secondary group-hover:text-accent h-6 w-6 transition-colors"
-                />
-            </div>
-
-            <span
-                class="text-text-secondary relative z-10 flex items-center gap-2 font-medium group-hover:text-white"
-            >
-                {SITE_CONFIG.ui.viewArchive}
-                <IconArrowRight
-                    class="text-accent h-4 w-4 transition-transform group-hover:translate-x-1"
-                />
-            </span>
-        </a>
-    </div>
-</Layout>
+    <section class="section-block" aria-labelledby="projects-title">
+      <div class="section-heading"><h2 id="projects-title">做过的项目</h2><a href="/projects/">全部项目 ↗</a></div>
+      <ul class="project-list">{projects.map((project) => <ProjectRow project={project} />)}</ul>
+    </section>
+  </div>
+</SiteLayout>

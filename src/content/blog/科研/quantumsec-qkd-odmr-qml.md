@@ -10,8 +10,6 @@ tags:
 aliases:
 ---
 
-# 当信息安全遇见量子测量：基于 Purohit & Vyas (2025) 综述的 QML-IDS 复现探索
-
 > **代码仓库（可复现）**：[quantumsec-qkd-odmr-qml](https://github.com/hicancan/quantumsec-qkd-odmr-qml)
 
 ---
@@ -101,21 +99,21 @@ $$ K(\mathbf{x}, \mathbf{y}) = |\langle\psi(\mathbf{x})|\psi(\mathbf{y})\rangle|
 
 #### 图1：QSVM 混淆矩阵 (`docs/figures/bb84_cm_qsvm.png`)
 
-![BB84 QSVM Confusion Matrix](https://img.hicancan.top/2026/02/f34bc7c358d57e0db83cce5aca1ea078.png)
+![BB84 QSVM Confusion Matrix](../../media/48a794735ac22d652dc6d511.png)
 
 * **读图**：图中对角线区域呈现**高亮色（黄绿色）**，而非对角线区域为**深紫色**，这种显著的反差表明模型预测与真实标签高度通过。
 * **数据支撑**：准确率达到 **87.5%**，说明绝大多数攻击行为(True Positive)都被成功拦截，且误报(False Positive)控制在合理范围。
 
 #### 图2：物理铁律 QBER vs SKR (`docs/figures/bb84_qber_skr.png`)
 
-![BB84 QBER vs SKR](https://img.hicancan.top/2026/02/0c1e2074acc468dd078746aef1d24c93.png)
+![BB84 QBER vs SKR](../../media/114a15c987c579569ccc4051.png)
 
 * **读图**：散点图清晰展示了 SKR 随 QBER 增加而下降的趋势，且所有点严格受限于 $1-2H_2(Q)$ 理论上界。
 * **科学意义**：在 $Q \approx 11\%$ 处 SKR 的断崖式归零，直观验证了 Shor-Preskill 安全性证明中的物理极限。
 
 #### 图3：模型性能对比 ROC (`docs/figures/bb84_roc_qsvm.png`)
 
-![BB84 QSVM ROC](https://img.hicancan.top/2026/02/2bbab6c4d72f1eb9159faa4c84a480c3.png)
+![BB84 QSVM ROC](../../media/5121b7c52bad71d1b9cf0b64.png)
 
 * **读图**：QSVM 的 ROC 曲线（**蓝色实线**）显著包络了对角线（虚线），并以大面积覆盖了左上角区域。
 * **结论**：**AUC 0.954 vs 0.880** 的巨大差异，可视化了 AI 如何在相同的物理数据中挖掘出更多的安全增益。
@@ -133,21 +131,21 @@ $$ K(\mathbf{x}, \mathbf{y}) = |\langle\psi(\mathbf{x})|\psi(\mathbf{y})\rangle|
 
 #### 图4：ODMR 平均光谱 (`docs/figures/odmr_mean_spectra.png`)
 
-![ODMR mean spectra](https://img.hicancan.top/2026/02/b42ff25b08bbf23643a6355ebd7b5fe8.png)
+![ODMR mean spectra](../../media/cb0056a5113168a06f39f446.png)
 
 * **现象**：攻击组（**橙色曲线**）与正常组（**蓝色曲线**）的 Lorentzian 光谱几乎完全重叠，肉眼无法区分。
 * **物理原因**：攻击微扰 $\ll$ 线宽与噪声，物理可分性丧失。
 
 #### 图5：QSVM 混淆矩阵 (`docs/figures/odmr_cm_qsvm.png`)
 
-![ODMR QSVM Confusion Matrix](https://img.hicancan.top/2026/02/4a99979229444d8782cfaec295eee6c8.png)
+![ODMR QSVM Confusion Matrix](../../media/0486ec44c3f884848ee2b80c.png)
 
 * **现象**：与图1形成鲜明对比，矩阵显示严重的**类别坍缩 (Mode Collapse)**，模型几乎将所有样本预测为同一类。
 * **数据支撑**：Accuracy **0.49** 接近随机猜硬币，证实模型完全失效。
 
 #### 图6：ODMR QSVM ROC (`docs/figures/odmr_roc_qsvm.png`)
 
-![ODMR QSVM ROC](https://img.hicancan.top/2026/02/e2285e30b7b8d865468584ed6c2b6953.png)
+![ODMR QSVM ROC](../../media/c6374d717be09e2559d0e62b.png)
 
 * **现象**：ROC 曲线位于对角线下方。
 * **科学启示**：这一“失败”案例极其珍贵。它通过反证法揭示了：**AI 的效力边界是由物理信噪比 (SNR) 决定的**。没有物理特征工程（如 Lorentzian 拟合），盲目使用 QML 是无效的。这呼应了 **Purohit & Vyas (2025)** 中对 "Data Encoding" 重要性的强调。

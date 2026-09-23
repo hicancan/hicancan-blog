@@ -71,7 +71,7 @@ int main(){
 
 ### 测试点结果
 
-![202411152323237.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411152323237.png)
+![202411152323237.png](../../media/1b61376cde610022ffb65c5b.png)
 
 ### 算法分析
 

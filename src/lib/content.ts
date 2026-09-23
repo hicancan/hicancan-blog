@@ -1,37 +1,32 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-export async function getSortedPosts(): Promise<CollectionEntry<'blog'>[]> {
-    const posts = await getCollection('blog');
-    return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+export type Post = CollectionEntry<'blog'>;
+
+export async function getPosts(): Promise<Post[]> {
+  const posts = await getCollection('blog');
+  return posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime() || a.id.localeCompare(b.id));
 }
 
-export async function getUniqueTags(): Promise<string[]> {
-    const posts = await getCollection('blog');
-    const tags = new Set<string>();
-    posts.forEach((post) => {
-        post.data.tags?.forEach((tag) => tags.add(tag));
-    });
-    return Array.from(tags).sort();
+const categoryNames: Record<string, string> = {
+  ctf: 'CTF',
+  数学: '数学',
+  科研: '科研',
+  算法: '算法',
+  英语: '英语',
+};
+
+export function categoryOf(post: Post): string {
+  return categoryNames[post.id.split('/')[0].toLowerCase()] ?? '随笔';
 }
 
-export async function getPostsByTag(tag: string): Promise<CollectionEntry<'blog'>[]> {
-    const posts = await getSortedPosts();
-    return posts.filter((post) => post.data.tags?.includes(tag));
+export function postUrl(post: Post): string {
+  return '/blog/' + post.id + '/';
 }
 
-export async function getTagCounts(): Promise<Record<string, number>> {
-    const posts = await getCollection('blog');
-    const counts: Record<string, number> = {};
-
-    posts.forEach((post) => {
-        post.data.tags?.forEach((tag) => {
-            counts[tag] = (counts[tag] || 0) + 1;
-        });
-    });
-
-    return counts;
-}
-
-export function sortTagsByCount(counts: Record<string, number>): string[] {
-    return Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+export function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date).replaceAll('/', '.');
 }

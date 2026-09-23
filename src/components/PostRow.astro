@@ -1,0 +1,19 @@
+---
+import type { Post } from '../lib/content';
+import { categoryOf, formatDate, postUrl } from '../lib/content';
+
+interface Props { post: Post; showDescription?: boolean }
+const { post, showDescription = false } = Astro.props;
+---
+
+<li>
+  <a class="post-row" href={postUrl(post)}>
+    <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+    <div class="post-main">
+      <div class="post-meta">{categoryOf(post)}</div>
+      <h3>{post.data.title}</h3>
+      {showDescription && <p>{post.data.description}</p>}
+    </div>
+    <span class="arrow" aria-hidden="true">↗</span>
+  </a>
+</li>

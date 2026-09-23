@@ -85,7 +85,7 @@ int main(){
 
 #### 测试点结果
 
-![202411301717901.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411301717901.png)  
+![202411301717901.png](../../media/1a0b8aa82e2226a18e5bde91.png)  
 不出意料的 AC 了。
 
 #### 算法分析
@@ -128,7 +128,7 @@ int main(){
 
 #### 测试点结果
 
-![202411301734075.png](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411301734075.png)  
+![202411301734075.png](../../media/56995f2fe060d08c5ec54e83.png)  
 不出所料的 AC 了。
 
 #### 算法分析

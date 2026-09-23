@@ -23,15 +23,15 @@ tags:
 4. 搜索找到一个在线base2048解码工具  
 <https://nerdmosis.com/tools/encode-and-decode-base2048>
 5. 利用该在线解码工具解码后得到flag  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052882.png)
+![alt text](../../media/9808ce06c5e4f36635c0efbc.png)
 6. flag：`0xGame{W3lc0me_t0_0xG4me!!!}`
 
 #### 关注DK盾谢谢喵
 
 1. “关注微信公众号, 发送 0xGame 2024 以获取 flag”  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052885.png)
+![alt text](../../media/ef64cd759bd346a183e77c43.png)
 2. 打开微信扫描二维码，关注后发送"0xGame 2024"，得到flag  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052886.png)
+![alt text](../../media/5ea45a1dbe28f2910c0b974e.png)
 3. flag：`0xGame{W31c0m3_70_0x64m3_2024_5p0n50r3d_8y_dkdun}`
 
 #### 我的世界基岩版(?
@@ -42,7 +42,7 @@ tags:
 如果服务器崩了或者有问题欢迎到群里拷打出题人 😦  
 世界中铁轨为玩家所建，另外告示牌皆为玩家所编辑，切勿随意相信:(”
 2. 此地无银三百两，那必须找找告示牌哇，注意ve后_的为英语中的换行连字符  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052887.png)
+![alt text](../../media/1e15781aacc74a2273a080e9.png)
 3. flag:`0xGame{MC_SErver_4_CTFers}`
 
 ### Crypto
@@ -53,7 +53,7 @@ tags:
 提示：凯撒加密。
 2. 搜索到凯撒加密解密在线工具：<https://ctf.bugku.com/tool/caesar>
 3. 由于不知道偏移量所以需要枚举偏移量，偏移量为1-25  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052888.png)  
+![alt text](../../media/4864ff14edcdb2184009cf2c.png)  
 逐个尝试得到25个解密后的字符串，发现偏移量为1时解密后的字符串有意义
 4. flag:`0xGame{The_Beginning_Of_Crypto}`
 
@@ -120,7 +120,7 @@ print(flag)
 
 1. 运行结果
 
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052890.png)  
+![alt text](../../media/89f41956e8281a859f7e5c28.png)  
 编译运行得到flag：
 
 `0xGame{73d72f64-7656-11ef-9393-047f0e7c4de1}`
@@ -221,12 +221,12 @@ print("key =", key)
 ```
 
 编译运行结果如下：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052891.png)  
+![alt text](../../media/7e434b48a81126b29e88c6b4.png)  
 key = OWCCL  
 3. 使用密钥解密加密后的字符串：  
 搜索得到Vigenere加密解密在线工具：<https://ctf.bugku.com/tool/vigenere>  
 利用key = OWCCL进行解密，得到flag：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052892.png)  
+![alt text](../../media/74239e8ed54d789fa905bf7f.png)  
 4. 得到flag:
 
 `0xGame{acb94092-e8bc-4963-88f6-4fcadbbfb6c7}`
@@ -306,7 +306,7 @@ print(flag)
 ```
 
 编译运行结果如下：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052894.png)  
+![alt text](../../media/9dace477a8ded61304014d6f.png)  
 3. 得到flag：  
 `0xGame{6e5719c54cdde25ce7124e280803f938}`
 
@@ -317,7 +317,7 @@ print(flag)
 1. “Prepare your netcat. Connect to server then you will get your first flag. nc 47.97.58.52 40000”由题目下载好netcat
 
 2. cmd运行nercat连接到服务器的结果：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052895.png)
+![alt text](../../media/46101f546f288b6ef1403b02.png)
 
 3. 得到flag：
 
@@ -328,18 +328,18 @@ print(flag)
 #### ez_login
 
 1. 题目给出一个网站<http://47.76.151.192:60084>  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052896.png)
+![alt text](../../media/f9852f5a5c899ef05b279aa6.png)
 
 2. 分析：有两个输入框，尝试使用burpsuite的intruder进行弱口令爆破密码：
 
 3. 首先用burpsuite内嵌浏览器访问网站，然后任意填写username和password点击login，抓包拦截：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052897.png)  
+![alt text](../../media/5010b0d2e72865f05b75d926.png)  
 不妨猜测用户名为admin，添加payload位置到password，然后点击attack进行爆破：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052899.png)  
+![alt text](../../media/1cca6284d001f46d672d186d.png)  
 爆破得到密码为admin123
 
 4. 利用得到的用户名和密码登录网站，得到flag：  
-![](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052900.png)
+![](../../media/65fd7f516a5330c94c9552e7.png)
 
 5. flag:
 
@@ -348,7 +348,7 @@ print(flag)
 #### hello_http
 
 1. 题目给出一个网站[http://8.130.84.100:50002/：](http://8.130.84.100:50002/%EF%BC%9A)  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052901.png)
+![alt text](../../media/df15962e04318803b7c95e9f.png)
 2. 分析：尝试通过修改请求包伪装成xlcBrowser浏览器:python爬虫代码如下：
 
 ```python
@@ -366,7 +366,7 @@ print(response.text)
 ```
 
 1. 运行结果如下：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052903.png)  
+![alt text](../../media/3f61a6a7fef368c555265469.png)  
 于是用get方式传递hello=world
 2. 此次类推，每一步修改都按照运行的结果进行：得到最终的代码：
 
@@ -399,7 +399,7 @@ print(response.text)
 ```
 
 1. 运行结果如下：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052904.png)
+![alt text](../../media/a60e162a074ab1566b82b2f6.png)
 
 2. 得到flag：
 
@@ -409,16 +409,16 @@ print(response.text)
 
 1. 题目给出一个网站Flag  
 <http://8.130.84.100:50001/>  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052905.png)
+![alt text](../../media/8f00db04a1f5d3aad80ee98e.png)
 2. 首先考虑查看源代码，发现右键后不行确定解题方向：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052906.png)
-3. 尝试F12也不行![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052907.png)
+![alt text](../../media/37d54bc80583a1c4866ec111.png)
+3. 尝试F12也不行![alt text](../../media/d7fe317f0af44a8c909cff49.png)
 4. 尝试Ctrl+U查看源代码：  
-![](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052908.png)
+![](../../media/cae4687ff30471eb896067e8.png)
 5. 源代码中得到flag前半段：`0xGame{ee7f2040-1987-4e0a`  
 提示查看：“看看f14g.php”
 6. 所以考虑利用wireshark抓包查看请求包：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052909.png)  
+![alt text](../../media/a9a311ecb62b627165f9c5d8.png)  
 找到flag后半段：`-872d-68589c4ab3d3}`
 7. 合并得到flag：`0xGame{ee7f2040-1987-4e0a-872d-68589c4ab3d3}`
 
@@ -427,18 +427,18 @@ print(response.text)
 #### BabyBase
 
 1. 题目给了一个BabyBase.exe文件，用Vscode中16进制编辑器查看：  
-![](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052910.png)
+![](../../media/35d50bc3bdefb616bc558459.png)
 2. 找到flag附近的可疑的连续可解码的base64编码的字符片段：  
 `MHhHYW1le04wd195MHVfa24wd19CNHNlNjRfRW5jMGQxbmdfdzNsbCF9`
 3. 用base64在线解码工具进行解码：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052911.png)
+![alt text](../../media/614afe74ac7a4dd2e3bfa8bf.png)
 4. 得到flag：  
 `0xGame{N0w_y0u_kn0w_B4se64_Enc0d1ng_w3ll!}`
 
 #### BinaryMaster
 
 1. 题目给了一个BinaryMaster.exe文件，用Vscode中16进制编辑器查看：找到flag：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052912.png)
+![alt text](../../media/4fa44c679c048e00a820ca00.png)
 2. flag：
 
 `0xGame{114514cc-a3a7-4e36-8db1-5f224b776271}`
@@ -446,8 +446,8 @@ print(response.text)
 #### SignSign
 
 1. 题目给了一个Signin.exe文件，用Vscode中16进制编辑器查看：找到有关flag的片段：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052913.png)  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052914.png)
+![alt text](../../media/908d9a55211deb4369b4a46a.png)  
+![alt text](../../media/95192dc3c552bb4c621abe70.png)
 2. flag被分在了两个片段，将他们合并得到flag：  
 `0xGame{S1gn1n_h3r3_4nd_b3g1n_Reversing_n0w}`
 
@@ -460,26 +460,26 @@ nc 156.238.233.7 20000
 rpc <http://156.238.233.7:8545>  
 faucet 156.238.233.7:8080
 2. 在metamask中连接到网络，创建一个账户，然后使用水龙头地址输入自己的地址获取一些以太币：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052915.png)  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052917.png)
+![alt text](../../media/cec9e3e1f848b242bb7c5864.png)  
+![alt text](../../media/6c1eecac03e4ad3890a474a1.png)
 3. 用netcat连接到服务器：  
-![](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052918.png)  
-按照要求给地址转账0.01个以太币：![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052919.png)  
-![](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052920.png)
+![](../../media/0c7acccbabecbcb092133e75.png)  
+按照要求给地址转账0.01个以太币：![alt text](../../media/738a3067dcd3466b4b4570dc.png)  
+![](../../media/f74302a24425f544c989f05d.png)
 4. 转账确认成功后，再次连接服务器进入第2步：  
-![](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052921.png)
+![](../../media/df5e286e029437cef74f2c02.png)
 5. 要部署合约使得函数issolved()返回true，所以需要找到合约代码：再次连接服务器进入第4步查看合约代码：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052922.png)
+![alt text](../../media/2ee18dbb35aba13538fc1931.png)
 6. 用RemixIDE相应的版本编译合约代码：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052923.png)
+![alt text](../../media/058fe89ab5d57d3dd60840ba.png)
 7. 输入合约地址：查看到两个函数  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052924.png)
+![alt text](../../media/f121f1b204ac4d70d348c089.png)
 8. 按照合约代码要求在sign函数右侧输入“Hello0xBlockchain”的256hash值，才能使issolved函数返回true，因此计算出hash值输入：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052925.png)  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052926.png)
+![alt text](../../media/965be1de5d50db6ee8738d86.png)  
+![alt text](../../media/07144bae7593dd171df375d1.png)
 9. 选择metamask账户，并点击sign提交哈希值，完成交易后，然后点击issolved查看返回值已经为true：  
-![alt text](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052927.png)
+![alt text](../../media/36fc2815c0fcd51d8aa7df2f.png)
 10. 然后再次连接服务器，进入第三步输入token得到flag：  
-![](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411071052928.png)
+![](../../media/4fa49576ceaac1219a72b90b.png)
 11. flag：  
 `0xGame{T3st1ng_ur_bl0ckcha1n!}`

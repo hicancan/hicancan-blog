@@ -1,49 +1,60 @@
-import { existsSync, readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const distRoot = new URL('../dist/', import.meta.url);
-const distPath = fileURLToPath(distRoot);
-const canonicalHost = 'https://www.hicancan.top';
+const dist = fileURLToPath(new URL('../dist/', import.meta.url));
+const media = fileURLToPath(new URL('../src/content/media/', import.meta.url));
+const page = (route) => join(dist, route, 'index.html');
 
-function assert(condition, message) {
-    if (!condition) {
-        throw new Error(message);
-    }
+for (const route of ['', 'articles', 'projects', 'about', 'friends', 'guestbook', 'tags', 'archive']) {
+  assert.ok(existsSync(page(route)), 'Missing page: /' + route + '/');
 }
 
-function readDist(relativePath) {
-    const path = join(distPath, relativePath);
-    assert(existsSync(path), `Missing dist file: ${relativePath}`);
-    return readFileSync(path, 'utf8');
+const legacyPosts = [
+  'welcome',
+  'ctf/0xgame',
+  '数学/math01',
+  '科研/quantumsec-qkd-odmr-qml',
+  '科研/science10_25',
+  '算法/0x0101',
+  '算法/luogu9_1',
+  '算法/luogu9_2',
+  '算法/luogu9_3',
+  '算法/luogu9_4',
+  '英语/english-share',
+];
+
+for (const slug of legacyPosts) {
+  const htmlFile = page('blog/' + slug);
+  assert.ok(existsSync(htmlFile), 'Missing legacy article: ' + slug);
+  const html = readFileSync(htmlFile, 'utf8');
+  assert.match(html, /<article\b/, 'Article not rendered: ' + slug);
+  assert.match(html, /<link rel="canonical"/, 'Missing canonical URL: ' + slug);
 }
 
-function headerMap(edgeone, source) {
-    const rule = edgeone.headers.find((item) => item.source === source);
-    assert(rule, `Missing edgeone header rule: ${source}`);
-    assert(Array.isArray(rule.headers), `Invalid edgeone header rule: ${source}`);
-    return Object.fromEntries(rule.headers.map((header) => [header.key, header.value]));
+const home = readFileSync(page(''), 'utf8');
+assert.match(home, /<html lang="zh-CN"/);
+assert.ok(!home.includes('数字花园'));
+assert.ok(!home.includes('glass-card'));
+assert.ok(existsSync(join(dist, 'sitemap-index.xml')));
+assert.ok(existsSync(join(dist, 'favicon.svg')));
+assert.equal(readdirSync(media).length, 89, 'Owned article images are missing');
+
+function* htmlFiles(directory) {
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) yield* htmlFiles(path);
+    else if (entry.name.endsWith('.html')) yield path;
+  }
 }
 
-assert(existsSync(distPath), 'dist directory must exist; run npm run build before npm run test');
+for (const file of htmlFiles(dist)) {
+  const html = readFileSync(file, 'utf8');
+  for (const match of html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)) {
+    const src = match[1];
+    if (src.startsWith('/')) assert.ok(existsSync(join(dist, decodeURIComponent(src.slice(1)))), 'Missing built image: ' + src);
+  }
+}
 
-const edgeone = JSON.parse(readDist('edgeone.json'));
-assert(Array.isArray(edgeone.headers), 'edgeone.json must declare headers');
-
-const baseHeaders = headerMap(edgeone, '/*');
-assert(baseHeaders['X-Content-Type-Options'] === 'nosniff', 'Missing nosniff security header');
-assert(baseHeaders['X-Frame-Options'] === 'SAMEORIGIN', 'Missing frame policy header');
-assert(baseHeaders['Referrer-Policy'] === 'strict-origin-when-cross-origin', 'Missing referrer policy header');
-assert(baseHeaders['Cache-Control'] === 'public, max-age=0, must-revalidate', 'HTML fallback cache must stay short');
-assert(headerMap(edgeone, '/*.json')['Cache-Control'] === 'public, max-age=0, must-revalidate', 'JSON cache must stay short');
-assert(headerMap(edgeone, '/_astro/*')['Cache-Control'] === 'public, max-age=31536000, immutable', 'Astro assets must be immutable');
-assert(headerMap(edgeone, '/assets/*')['Cache-Control'] === 'public, max-age=31536000, immutable', 'static assets must be immutable');
-
-const indexHtml = readDist('index.html');
-assert(indexHtml.includes(`<link rel="canonical" href="${canonicalHost}/">`), 'home canonical must use www host');
-
-const sitemapIndex = readDist('sitemap-index.xml');
-assert(sitemapIndex.includes(canonicalHost), 'sitemap index must use www host');
-assert(!sitemapIndex.includes('https://hicancan.top'), 'sitemap index must not use apex host');
-
-console.log('validated site output contract');
+console.log('Verified 11 legacy articles, core pages, metadata, sitemap, and local article images.');

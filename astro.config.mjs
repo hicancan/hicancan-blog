@@ -1,24 +1,18 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-
-import tailwindcss from '@tailwindcss/vite';
-
-import react from '@astrojs/react';
-
 import sitemap from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://www.hicancan.top',
-  vite: {
-    plugins: [tailwindcss()]
-  },
-
-  integrations: [react(), sitemap()],
+  integrations: [sitemap()],
+  redirects: { '/archive': '/articles' },
   markdown: {
-    remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex]
-  }
+    shikiConfig: { theme: 'github-light' },
+    processor: unified({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    }),
+  },
 });

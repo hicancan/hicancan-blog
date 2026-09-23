@@ -88,6 +88,7 @@ jobs:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
           EDGEONE_PROJECT_NAME: ${{ vars.EDGEONE_PROJECT_NAME }}
           EDGEONE_PAGES_AREA: ${{ vars.EDGEONE_PAGES_AREA || 'global' }}
+          PAGES_SOURCE: skills
         run: |
           set -o pipefail
           if [ -z "${EDGEONE_API_TOKEN}" ]; then
@@ -100,11 +101,12 @@ jobs:
           fi
           area="${EDGEONE_PAGES_AREA:-global}"
           echo "Deploying dist to EdgeOne Pages project '${EDGEONE_PROJECT_NAME}' in area '${area}'."
-          npx --yes edgeone@latest pages deploy dist \
+          npx --yes edgeone@1.6.28 makers deploy dist \
             -n "${EDGEONE_PROJECT_NAME}" \
             -t "${EDGEONE_API_TOKEN}" \
             -e production \
-            -a "${area}"
+            -a "${area}" \
+            --json
 
       - name: Purge Cloudflare Cache
         if: ${{ vars.CF_PURGE_ENABLED == '1' }}

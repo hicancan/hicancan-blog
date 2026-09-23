@@ -7,8 +7,6 @@ tags:
   - Life
 ---
 
-# **Is ‘Rizz’ the Secret to Getting Ahead at Work?**
-
 ——“魅力”是在职场脱颖而出的秘诀吗?
 
 hicancan的英语阅读笔记
@@ -19,7 +17,7 @@ hicancan的英语阅读笔记
 
 ## Background Supplement【背景补充】
 
-> ![{F45E7698-F509-42BD-B1F9-E1088EF4AB00}](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411051504975.png)  
+> ![{F45E7698-F509-42BD-B1F9-E1088EF4AB00}](../../media/5b022e78b8ba64e80876be40.png)  
 > 2023牛津词典年度热词**Rizz**  
 > 英国牛津大学出版社12月4日公布，年轻人常用的网络俚语“Rizz”顺利脱颖而出，成为2023的牛津年度词汇。根据牛津大学出版社，“Rizz”含意为有魅力、具有吸引力及可以吸引浪漫及性伴侣。「Rizz」被视为“非凡的个人魅力”（charisma）一词的缩短版本。  
 > 例句：  
@@ -27,7 +25,7 @@ hicancan的英语阅读笔记
 > 「丹可能没有传统意义上的吸引力，但他拥有一些严肃的魅力——看看他是如何吸引那两个模特的。」  
 > 它也可以用作动词，用在“to rizz up”等俗语中，意思是吸引、引诱或与某人聊天。但是这个词是网络俚语，主要由年轻人在网络上使用。在TikTok上标签“rizz”的浏览量达到数十亿次。YouTube博主兼Twitch主播Kai Cenat被广泛认为是这词的普及者。今年这个词的使用量继续攀升，六月份，Buzzfeed向演员Tom Holland询问了他的rizz秘密。Tom Holland回答说：“我没有任何rizz，我的rizz有限。”然后解释说，他通过“持久战”赢得了女友Zendaya的芳心。  
 > ![img](https://p7.itc.cn/q_70/images03/20231213/6ee847242377403eb8a282fbe7840274.jpeg)  
-> ![](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411051507460.webp)  
+> ![](../../media/c10a699b6aab19b6c8e77024.webp)  
 > 这个采访后，“rizz”的使用更加频繁。牛津语言学院院长卡斯珀·格拉思沃尔(Casper Grathwohl)表示，这个词可能代表了“2023年的普遍情绪，即我们中的更多人在经历了充满挑战的几年后开始敞开心扉，对自己充满信心”。
 
 > cha·ris·ma n. /kəˈrɪzmə/  
@@ -41,13 +39,13 @@ hicancan的英语阅读笔记
 
 ## Whether you call it charisma, charm or magnetism【磁性；吸引力】, some people seem like naturals. 【whether强调内涵】
 
-![img](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411042331181.svg)
+![img](../../media/5379f9eaa324757a38a2ebda.svg)
 
 By Rachel Feintzeig
 
-Mon, Jul 22, 2024 11:35am![灰色时钟](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411042332372.svg) 4 min
+Mon, Jul 22, 2024 11:35am![灰色时钟](../../media/9b21f7e8474ad75cba607672.svg) 4 min
 
-![img](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411041851798.png)
+![img](../../media/b12f55a1e1dce7d79a513c90.png)
 
 ## Good news: It can be learned
 
@@ -186,7 +184,7 @@ Our most admired colleagues are often the ones who are good at their jobs and ca
 
 * * *
 
-![img](https://gcore.jsdelivr.net/gh/hicancan/piclist/202411041851559.svg) Copyright 2020, Dow Jones & Company, Inc. All Rights Reserved Worldwide. LEARN MORE
+![img](../../media/9cc75710cd53d732f3dbf558.svg) Copyright 2020, Dow Jones & Company, Inc. All Rights Reserved Worldwide. LEARN MORE
 
 * * *
 
@@ -195,65 +193,30 @@ Our most admired colleagues are often the ones who are good at their jobs and ca
 ## Mind map summary【思维导图总结】
 
 ```mermaid
-graph LRo(Is ‘Rizz’ the Secret to<br> Getting Ahead at Work?) --- o1(Why to be rizz?)
-o1 --- o11(Comparison) 
-o11 --- o111(Confident:effortlessly hold court)
-o11 --- o112(Nervous:mental internal friction)
-o1 --- o12(Benifits)
-o12 --- o121(It can lubricate social interactions,<br> win us friends, and score promotions)
-o12 --- o122(Possible to cultivate)
-o --- o2(What is rizz?)
-o2 --- o21(Not about some grand performance)
-o2 --- o22(A state we elicit in other people)
-o2 --- o23(Fostering connection and making our<br> conversation partners pleasure)
-o --- o3(How to be rizz?)
-o3 --- o31(Approachable and relatable)
-o31 --- o311(Make them feel they know you)
-o31 --- o312(Remember the details and<br> dates of people’s lives)
-o31 --- o313(Your own handwriting)
-o3 --- o32(Everyone is important)
-o32 --- o321(Chat with everyone)
-o3 --- o33(Charisma for introverts)
-o33 --- o331(Using nonverbal cues)
-o33 --- o332(Show your actual interests)
-o3 --- o34(Embracing your stumbles)
-o34 --- o341(Imperfect people are more popular)
-style o fill:black,stroke:black,stroke-width:1px,color:white
-style o1 fill:#f22816,stroke:#f22816,stroke-width:1px,color:white
-style o2 fill:#f2b807,stroke:#f2b807,stroke-width:1px,color:white
-style o3 fill:#233ed9,stroke:#233ed9,stroke-width:1px,color:white
-style o11 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
-style o12 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
-style o111 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
-style o112 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
-style o121 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
-style o122 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
-style o21 fill:#fcf1cd,stroke:#fcf1cd,stroke-width:1px
-style o22 fill:#fcf1cd,stroke:#fcf1cd,stroke-width:1px
-style o23 fill:#fcf1cd,stroke:#fcf1cd,stroke-width:1px
-linkStyle 0 stroke:#f22816,stroke-width:5px;
-linkStyle 1 stroke:#f22816,stroke-width:3px;
-linkStyle 2 stroke:#f22816,stroke-width:3px;
-linkStyle 3 stroke:#f22816,stroke-width:3px;
-linkStyle 4 stroke:#f22816,stroke-width:3px;
-linkStyle 5 stroke:#f22816,stroke-width:3px;
-linkStyle 6 stroke:#f22816,stroke-width:3px;
-linkStyle 7 stroke:#f2b807,stroke-width:5px;
-linkStyle 8 stroke:#f2b807,stroke-width:3px;
-linkStyle 9 stroke:#f2b807,stroke-width:3px;
-linkStyle 10 stroke:#f2b807,stroke-width:3px;
-linkStyle 11 stroke:#233ed9,stroke-width:5px;
-linkStyle 12 stroke:#233ed9,stroke-width:3px;
-linkStyle 13 stroke:#233ed9,stroke-width:3px;
-linkStyle 14 stroke:#233ed9,stroke-width:3px;
-linkStyle 15 stroke:#233ed9,stroke-width:3px;
-linkStyle 16 stroke:#233ed9,stroke-width:3px;
-linkStyle 17 stroke:#233ed9,stroke-width:3px;
-linkStyle 18 stroke:#233ed9,stroke-width:3px;
-linkStyle 19 stroke:#233ed9,stroke-width:3px;
-linkStyle 20 stroke:#233ed9,stroke-width:3px;
-linkStyle 21 stroke:#233ed9,stroke-width:3px;
-linkStyle 22 stroke:#233ed9,stroke-width:3px;
+flowchart LR
+  o["Is ‘Rizz’ the Secret to<br/>Getting Ahead at Work?"] --- o1["Why have rizz?"]
+  o1 --- o11["Comparison"]
+  o11 --- o111["Confident: effortlessly hold court"]
+  o11 --- o112["Nervous: mental internal friction"]
+  o1 --- o12["Benefits"]
+  o12 --- o121["Lubricate social interactions,<br/>win friends and earn promotions"]
+  o12 --- o122["Possible to cultivate"]
+  o --- o2["What is rizz?"]
+  o2 --- o21["Not a grand performance"]
+  o2 --- o22["A state we elicit in other people"]
+  o2 --- o23["Fostering connection and<br/>making others feel at ease"]
+  o --- o3["How to build it?"]
+  o3 --- o31["Be approachable and relatable"]
+  o31 --- o311["Help people feel they know you"]
+  o31 --- o312["Remember details and dates"]
+  o31 --- o313["Write by hand"]
+  o3 --- o32["Treat everyone as important"]
+  o32 --- o321["Talk with everyone"]
+  o3 --- o33["Charisma for introverts"]
+  o33 --- o331["Use nonverbal cues"]
+  o33 --- o332["Show your interests"]
+  o3 --- o34["Embrace stumbles"]
+  o34 --- o341["Imperfect people are more relatable"]
 ```
 
 下面这个版本可能有点拥挤(……)不过看起来更像个思维导图(bushi)
