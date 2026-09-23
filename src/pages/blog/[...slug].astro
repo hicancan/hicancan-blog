@@ -29,20 +29,4 @@ const { Content } = await render(post);
   </article>
 </SiteLayout>
 
-<script>
-  const blocks = [...document.querySelectorAll<HTMLElement>('.article-content pre')].filter((pre) =>
-    pre.dataset.language === 'mermaid' || pre.classList.contains('language-mermaid') || pre.querySelector('code.language-mermaid')
-  );
-  if (blocks.length) {
-    const { default: mermaid } = await import('mermaid');
-    const nodes = blocks.map((pre) => {
-      const node = document.createElement('div');
-      node.className = 'mermaid';
-      node.textContent = pre.textContent;
-      pre.replaceWith(node);
-      return node;
-    });
-    mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'strict' });
-    try { await mermaid.run({ nodes }); } catch (error) { console.error('Diagram render failed', error); }
-  }
-</script>
+<script>import '../../scripts/diagrams';</script>

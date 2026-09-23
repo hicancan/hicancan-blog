@@ -5,11 +5,11 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 const friends = (await getCollection('friends')).sort((a, b) => a.data.name.localeCompare(b.data.name));
 ---
 
-<SiteLayout title="朋友" description="值得一读的朋友们。">
+<SiteLayout title="友链" description="友链">
   <div class="container">
     <header class="page-intro">
       <p class="eyebrow">Links</p>
-      <h1 class="page-title">朋友</h1>
+      <h1 class="page-title">友链</h1>
     </header>
     <ul class="friend-list">
       {friends.map((friend) => <li class="friend-row"><a href={friend.data.url} target="_blank" rel="noopener noreferrer">{friend.data.name} ↗</a><span>{friend.data.description}</span></li>)}

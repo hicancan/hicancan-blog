@@ -5,7 +5,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import PostRow from '../components/PostRow.astro';
 import ProjectRow from '../components/ProjectRow.astro';
 import { getPosts } from '../lib/content';
-import avatar from '../assets/avatar.jpg';
+import avatar from '../assets/avatar.png';
 
 const posts = (await getPosts()).slice(0, 4);
 const projects = (await getCollection('projects'))
@@ -17,7 +17,6 @@ const projects = (await getCollection('projects'))
   <div class="container">
     <section class="home-hero" aria-labelledby="intro-title">
       <div>
-        <p class="eyebrow">南京邮电大学 · 学生 / 开发者</p>
         <h1 id="intro-title" class="hero-name">你好，我是<br /><span>hicancan.</span></h1>
         <p class="hero-copy">写代码，也记录做题、研究和阅读时遇到的问题。这里放着我的文章和做过的项目。</p>
         <div class="hero-links">
