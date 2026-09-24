@@ -39,9 +39,12 @@ assert.ok(!home.includes('数字花园'));
 assert.ok(!home.includes('glass-card'));
 assert.ok(!home.includes('学生 / 开发者'));
 assert.match(home, /avatar\.[^" ]+\.webp/);
+assert.match(home, /data-theme-toggle/);
+assert.match(home, /site-theme/);
 assert.match(home, /href="\/friends\/">友链<\/a>/);
 assert.match(readFileSync(page('friends'), 'utf8'), /<h1 class="page-title">友链<\/h1>/);
 assert.ok(!existsSync(page('render-check')), 'Temporary render check page must not ship');
+assert.ok(!existsSync(page('theme-render-check')), 'Temporary theme check page must not ship');
 assert.ok(existsSync(join(dist, 'sitemap-index.xml')));
 for (const icon of ['favicon.png', 'apple-touch-icon.png', 'social-avatar.png']) {
   assert.ok(existsSync(join(dist, icon)), 'Missing avatar icon: ' + icon);

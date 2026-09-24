@@ -1,4 +1,5 @@
 ---
+import ThemeToggle from './ThemeToggle.astro';
 const path = Astro.url.pathname;
 const writing = path.startsWith('/articles') || path.startsWith('/blog/') || path.startsWith('/archive') || path.startsWith('/tags');
 ---
@@ -6,10 +7,13 @@ const writing = path.startsWith('/articles') || path.startsWith('/blog/') || pat
 <header class="site-header">
   <div class="container header-inner">
     <a class="wordmark" href="/" aria-label="hicancan 首页">hicancan<span>.</span></a>
-    <nav class="site-nav" aria-label="主导航">
-      <a href="/articles/" aria-current={writing ? 'page' : undefined}>文章</a>
-      <a href="/projects/" aria-current={path.startsWith('/projects') ? 'page' : undefined}>项目</a>
-      <a href="/about/" aria-current={path.startsWith('/about') ? 'page' : undefined}>关于</a>
-    </nav>
+    <div class="header-actions">
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/articles/" aria-current={writing ? 'page' : undefined}>文章</a>
+        <a href="/projects/" aria-current={path.startsWith('/projects') ? 'page' : undefined}>项目</a>
+        <a href="/about/" aria-current={path.startsWith('/about') ? 'page' : undefined}>关于</a>
+      </nav>
+      <ThemeToggle />
+    </div>
   </div>
 </header>

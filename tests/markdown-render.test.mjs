@@ -37,3 +37,9 @@ test('diagram fences remain available for browser rendering', async () => {
     assert.match(code, new RegExp(`data-language="${kind}"`));
   }
 });
+
+test('code fences contain both syntax palettes', async () => {
+  const { code } = await markdown.render('```js\nconst answer = 42;\n```');
+  assert.match(code, /astro-code-themes github-light github-dark/);
+  assert.match(code, /--shiki-dark/);
+});

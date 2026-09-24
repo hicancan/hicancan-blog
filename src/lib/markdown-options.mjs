@@ -12,6 +12,6 @@ export const markdownOptions = {
 };
 
 export const shikiConfig = {
-  theme: 'github-light',
+  themes: { light: 'github-light', dark: 'github-dark' },
   langAlias: { flow: 'plaintext', sequence: 'plaintext' },
 };
