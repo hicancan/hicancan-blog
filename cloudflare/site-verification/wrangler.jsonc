@@ -1,0 +1,21 @@
+{
+  "name": "hicancan-baidu-verification",
+  "account_id": "54264dda1fcd008c0d4fcf4a411cd582",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-10-12",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "hicancan.top/baidu_verify_codeva-TlJBZmli1p.html",
+      "zone_name": "hicancan.top"
+    }
+  ],
+  "rules": [
+    {
+      "type": "Text",
+      "globs": ["**/baidu_verify_codeva-TlJBZmli1p.html"],
+      "fallthrough": true
+    }
+  ]
+}
