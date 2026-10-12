@@ -7,9 +7,10 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
-const { title, description = 'hicancan 的文章与项目。' } = Astro.props;
+const { title, description = 'hicancan 的文章与项目。', noindex = false } = Astro.props;
 const pageTitle = title ? title + ' · hicancan' : 'hicancan';
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString();
 ---
@@ -30,12 +31,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString(
       document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#14181d' : '#fcfcfb');
     </script>
     <meta name="description" content={description} />
+    {Astro.url.pathname === '/' && <meta name="msvalidate.01" content="E44C2F6A09F0A678DED98C8374E549A1" />}
+    {Astro.url.pathname === '/' && <meta name="baidu-site-verification" content="codeva-KrDQeTcVHk" />}
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {!noindex && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content="https://www.hicancan.top/social-avatar.png" />
-    <link rel="canonical" href={canonical} />
+    {!noindex && <link rel="canonical" href={canonical} />}
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <title>{pageTitle}</title>

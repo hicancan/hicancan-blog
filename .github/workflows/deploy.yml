@@ -50,14 +50,6 @@ jobs:
         with:
           path: dist
 
-      - name: Upload EdgeOne artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: edgeone-dist
-          path: dist
-          if-no-files-found: error
-          retention-days: 1
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -65,12 +57,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download EdgeOne artifact
+      - name: Checkout EdgeOne source
         if: ${{ vars.EDGEONE_PAGES_ENABLED == 'true' }}
-        uses: actions/download-artifact@v7
-        with:
-          name: edgeone-dist
-          path: dist
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
         if: ${{ vars.EDGEONE_PAGES_ENABLED == 'true' }}
@@ -100,8 +89,8 @@ jobs:
             exit 1
           fi
           area="${EDGEONE_PAGES_AREA:-global}"
-          echo "Deploying dist to EdgeOne Pages project '${EDGEONE_PROJECT_NAME}' in area '${area}'."
-          npx --yes edgeone@1.6.28 makers deploy dist \
+          echo "Building and deploying EdgeOne Pages project '${EDGEONE_PROJECT_NAME}' in area '${area}'."
+          npx --yes edgeone@1.6.28 makers deploy \
             -n "${EDGEONE_PROJECT_NAME}" \
             -t "${EDGEONE_API_TOKEN}" \
             -e production \
