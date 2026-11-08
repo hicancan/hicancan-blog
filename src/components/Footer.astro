@@ -1,6 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import policeEmblem from '../assets/police-emblem.png';
+
+// hicancan.top's filings: the ministry's ICP number links to its register, the police number to its own record.
+const icp = { text: '苏ICP备2026038426号-1', url: 'https://beian.miit.gov.cn/' };
+const police = { text: '苏公网安备32011302323214号', url: 'https://beian.mps.gov.cn/#/query/webSearch?code=32011302323214' };
+---
 <footer class="site-footer">
   <div class="container footer-inner">
-    <span>© {new Date().getFullYear()} hicancan</span>
+    <span class="footer-copy">© {new Date().getFullYear()} hicancan</span>
+    {/* The filings sit at the centre of the foot, where the rules put them and where the footer balances. */}
+    <span class="filings">
+      <a href={icp.url} target="_blank" rel="noopener noreferrer">{icp.text}</a>
+      <a href={police.url} target="_blank" rel="noopener noreferrer"><Image src={policeEmblem} width={14} height={15} densities={[1, 2, 3]} alt="" />{police.text}</a>
+    </span>
     <nav class="footer-links" aria-label="其他链接">
       <a href="https://github.com/hicancan" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       <a href="https://space.bilibili.com/1144561698" target="_blank" rel="noopener noreferrer">Bilibili ↗</a>
