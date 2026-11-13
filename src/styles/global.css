@@ -188,11 +188,15 @@ html[data-theme='dark'] .article-content .astro-code, html[data-theme='dark'] .a
 .article-content .markdown-alert-tip { border-left-color: #188038; background: var(--alert-tip); }
 .article-content .markdown-alert-warning, .article-content .markdown-alert-caution { border-left-color: #d56a00; background: var(--alert-warning); }
 .article-content .markdown-alert-important { border-left-color: #9334e6; background: var(--alert-important); }
-.article-content mjx-container { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.article-content .math svg { fill: currentColor; overflow: visible; }
+.article-content .math-display { display: block; margin: 1.4em 0; overflow-x: auto; overflow-y: hidden; padding: .2em 0; text-align: center; font-size: 1.08em; }
+.article-content .table { margin: 1.8em 0; overflow-x: auto; }
+.article-content .table table { margin: 0; }
+.article-content .task-list-item { list-style: none; }
+.article-content .task-list-item input { margin-left: -1.4em; }
 .article-content .footnotes { font-size: 14px; color: var(--muted); }
-.article-content .diagram-panel { margin: 1.9em 0; padding: 20px; overflow-x: auto; border: 1px solid var(--line); border-radius: 7px; background: var(--diagram-bg); }
-.article-content .diagram-panel svg { display: block; max-width: none; height: auto; margin-inline: auto; }
-html[data-theme='dark'] .article-content .diagram-panel[data-diagram='sequence'] svg { filter: invert(1) hue-rotate(180deg); }
+.article-content .diagram { margin: 1.9em 0; padding: 20px; overflow-x: auto; border: 1px solid var(--line); border-radius: 7px; background: var(--diagram-bg); color: var(--ink); }
+.article-content .diagram svg { display: block; max-width: none; height: auto; margin-inline: auto; }
 
 .about-grid { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 55px; align-items: start; padding-top: 80px; }
 .about-photo { width: 160px; height: 160px; border-radius: 18px; object-fit: cover; }
